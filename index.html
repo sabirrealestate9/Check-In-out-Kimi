@@ -4,1452 +4,180 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sabir Amin Real Estate | Professional Studio Management System</title>
-
-  <!-- Google Identity Services -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <style>
     :root {
-      /* Primary Palette - Elegant Gold & Navy */
-      --primary: #C9A962;
-      --primary-light: #E8D5A3;
-      --primary-dark: #A68B4B;
+      --primary: #C9A962; --primary-light: #E8D5A3; --primary-dark: #A68B4B;
       --primary-gradient: linear-gradient(135deg, #C9A962 0%, #E8D5A3 50%, #C9A962 100%);
-      
-      /* Secondary - Deep Navy */
-      --navy: #1A1F36;
-      --navy-light: #2D3655;
-      --navy-dark: #0F1322;
-      
-      /* Accent Colors */
-      --accent-teal: #2DD4BF;
-      --accent-rose: #F472B6;
-      --accent-blue: #60A5FA;
-      --accent-purple: #A78BFA;
-      
-      /* Semantic Colors */
-      --success: #10B981;
-      --warning: #F59E0B;
-      --error: #EF4444;
-      --info: #3B82F6;
-      
-      /* Neutrals */
-      --white: #FFFFFF;
-      --gray-50: #F8FAFC;
-      --gray-100: #F1F5F9;
-      --gray-200: #E2E8F0;
-      --gray-300: #CBD5E1;
-      --gray-400: #94A3B8;
-      --gray-500: #64748B;
-      --gray-600: #475569;
-      --gray-700: #334155;
-      --gray-800: #1E293B;
-      --gray-900: #0F172A;
-      
-      /* Shadows */
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-      --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      --shadow-gold: 0 10px 40px -10px rgba(201, 169, 98, 0.4);
-      
-      /* Border Radius */
-      --radius-sm: 6px;
-      --radius: 12px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-      --radius-full: 9999px;
-      
-      /* Transitions */
-      --transition-fast: 150ms ease;
+      --navy: #1A1F36; --navy-light: #2D3655; --navy-dark: #0F1322;
+      --success: #10B981; --warning: #F59E0B; --error: #EF4444; --info: #3B82F6;
+      --white: #FFFFFF; --gray-50: #F8FAFC; --gray-100: #F1F5F9; --gray-200: #E2E8F0;
+      --gray-300: #CBD5E1; --gray-400: #94A3B8; --gray-500: #64748B; --gray-600: #475569;
+      --gray-700: #334155; --gray-800: #1E293B; --gray-900: #0F172A;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1); --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+      --shadow-gold: 0 10px 40px -10px rgba(201,169,98,0.4);
+      --radius: 12px; --radius-lg: 16px; --radius-xl: 24px; --radius-full: 9999px;
       --transition: 300ms ease;
-      --transition-slow: 500ms ease;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-      background: var(--gray-50);
-      color: var(--gray-800);
-      min-height: 100vh;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Header Styles */
-    .header {
-      background: var(--navy);
-      padding: 0 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 80px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .header::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--primary-gradient);
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .logo-icon {
-      width: 52px;
-      height: 52px;
-      background: var(--primary-gradient);
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--navy);
-      box-shadow: var(--shadow-gold);
-    }
-
-    .brand-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: 0.02em;
-    }
-
-    .brand-text p {
-      font-size: 11px;
-      color: var(--primary-light);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .status-badge {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 16px;
-      background: rgba(201, 169, 98, 0.1);
-      border: 1px solid rgba(201, 169, 98, 0.3);
-      border-radius: var(--radius-full);
-      font-size: 13px;
-      color: var(--primary-light);
-      font-weight: 500;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gray-500);
-      animation: pulse 2s infinite;
-    }
-
-    .status-dot.connected {
-      background: var(--success);
-      animation: none;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
-    .btn-google {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 20px;
-      background: var(--white);
-      border: none;
-      border-radius: var(--radius);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--gray-700);
-      cursor: pointer;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-    }
-
-    .btn-google:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-google.connected {
-      background: var(--success);
-      color: var(--white);
-    }
-
-    /* Navigation */
-    .nav-bar {
-      background: var(--white);
-      padding: 0 32px;
-      display: flex;
-      gap: 8px;
-      border-bottom: 1px solid var(--gray-200);
-      position: sticky;
-      top: 80px;
-      z-index: 100;
-    }
-
-    .nav-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 16px 24px;
-      background: none;
-      border: none;
-      border-bottom: 3px solid transparent;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gray-500);
-      cursor: pointer;
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .nav-btn:hover {
-      color: var(--navy);
-      background: var(--gray-50);
-    }
-
-    .nav-btn.active {
-      color: var(--primary-dark);
-      border-bottom-color: var(--primary);
-    }
-
-    .nav-btn.active::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20px;
-      height: 3px;
-      background: var(--primary);
-      border-radius: var(--radius-full);
-    }
-
-    .nav-badge {
-      background: var(--primary);
-      color: var(--navy);
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: var(--radius-full);
-    }
-
-    /* Main Content */
-    .main-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 32px;
-    }
-
-    .tab-panel {
-      display: none;
-      animation: fadeIn 0.4s ease;
-    }
-
-    .tab-panel.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Page Header */
-    .page-header {
-      margin-bottom: 32px;
-    }
-
-    .page-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-
-    .page-header h2 span {
-      color: var(--primary);
-      font-style: italic;
-    }
-
-    .page-header p {
-      color: var(--gray-500);
-      font-size: 15px;
-    }
-
-    /* Cards */
-    .card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      margin-bottom: 24px;
-      transition: var(--transition);
-    }
-
-    .card:hover {
-      box-shadow: var(--shadow-md);
-    }
-
-    .card-header {
-      padding: 24px 28px;
-      border-bottom: 1px solid var(--gray-100);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .card-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--navy);
-    }
-
-    .card-title-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--navy);
-      font-size: 18px;
-    }
-
-    .card-body {
-      padding: 28px;
-    }
-
-    /* Form Grid */
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .form-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .form-grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    @media (max-width: 1024px) {
-      .form-grid-3 { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 768px) {
-      .form-grid-3, .form-grid-2 { grid-template-columns: 1fr; }
-    }
-
-    /* Form Fields */
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .field-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--gray-600);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .field-label .required {
-      color: var(--error);
-    }
-
-    .field-hint {
-      font-size: 12px;
-      color: var(--gray-400);
-      font-weight: 400;
-      text-transform: none;
-    }
-
-    .field-input,
-    .field-select,
-    .field-textarea {
-      padding: 14px 16px;
-      border: 2px solid var(--gray-200);
-      border-radius: var(--radius);
-      font-size: 14px;
-      font-family: inherit;
-      color: var(--gray-800);
-      background: var(--white);
-      transition: var(--transition);
-      width: 100%;
-    }
-
-    .field-input:focus,
-    .field-select:focus,
-    .field-textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(201, 169, 98, 0.15);
-    }
-
-    .field-input::placeholder,
-    .field-textarea::placeholder {
-      color: var(--gray-400);
-    }
-
-    .field-input[readonly] {
-      background: var(--gray-100);
-      color: var(--gray-600);
-      cursor: not-allowed;
-    }
-
-    .field-textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .input-with-icon {
-      position: relative;
-    }
-
-    .input-with-icon .field-input {
-      padding-left: 44px;
-    }
-
-    .input-icon {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--gray-400);
-      font-size: 16px;
-    }
-
-    /* Emirates ID Section */
-    .emirates-id-section {
-      background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
-      border: 2px dashed var(--success);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-    }
-
-    .emirates-id-preview {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .id-card-preview {
-      aspect-ratio: 1.586;
-      background: var(--white);
-      border-radius: var(--radius);
-      overflow: hidden;
-      position: relative;
-      box-shadow: var(--shadow);
-    }
-
-    .id-card-preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .id-card-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-400);
-      gap: 8px;
-    }
-
-    .id-card-placeholder i {
-      font-size: 32px;
-    }
-
-    /* Camera Section */
-    .camera-section {
-      background: var(--navy);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      color: var(--white);
-    }
-
-    .camera-container {
-      position: relative;
-      background: var(--navy-dark);
-      border-radius: var(--radius);
-      overflow: hidden;
-      aspect-ratio: 16/9;
-      margin-bottom: 16px;
-    }
-
-    .camera-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .camera-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    .camera-frame {
-      width: 80%;
-      height: 60%;
-      border: 2px dashed var(--primary);
-      border-radius: var(--radius);
-      position: relative;
-    }
-
-    .camera-frame::before,
-    .camera-frame::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border-color: var(--primary);
-      border-style: solid;
-    }
-
-    .camera-frame::before {
-      top: -2px;
-      left: -2px;
-      border-width: 3px 0 0 3px;
-    }
-
-    .camera-frame::after {
-      bottom: -2px;
-      right: -2px;
-      border-width: 0 3px 3px 0;
-    }
-
-    .camera-controls {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-    }
-
-    .camera-btn {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 3px solid var(--white);
-      background: var(--primary);
-      cursor: pointer;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      color: var(--navy);
-    }
-
-    .camera-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(201, 169, 98, 0.5);
-    }
-
-    /* Photo Gallery */
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .photo-item {
-      aspect-ratio: 1;
-      border-radius: var(--radius);
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .photo-item:hover {
-      transform: scale(1.05);
-      box-shadow: var(--shadow-md);
-    }
-
-    .photo-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .photo-remove {
-      position: absolute;
-      top: 4px;
-      right: 4px;
-      width: 24px;
-      height: 24px;
-      background: var(--error);
-      color: var(--white);
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      opacity: 0;
-      transition: var(--transition);
-    }
-
-    .photo-item:hover .photo-remove {
-      opacity: 1;
-    }
-
-    /* Upload Zone */
-    .upload-zone {
-      border: 2px dashed var(--gray-300);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      text-align: center;
-      cursor: pointer;
-      transition: var(--transition);
-      background: var(--gray-50);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .upload-zone::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--primary-gradient);
-      opacity: 0;
-      transition: var(--transition);
-    }
-
-    .upload-zone:hover,
-    .upload-zone.dragover {
-      border-color: var(--primary);
-      background: var(--white);
-    }
-
-    .upload-zone:hover::before,
-    .upload-zone.dragover::before {
-      opacity: 0.05;
-    }
-
-    .upload-zone-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .upload-icon {
-      width: 80px;
-      height: 80px;
-      background: var(--primary-gradient);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      font-size: 32px;
-      color: var(--navy);
-      box-shadow: var(--shadow-gold);
-    }
-
-    .upload-zone h4 {
-      font-size: 18px;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-
-    .upload-zone p {
-      color: var(--gray-500);
-      font-size: 14px;
-    }
-
-    .upload-zone input[type="file"] {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      cursor: pointer;
-    }
-
-    /* Checklist */
-    .checklist-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 12px;
-    }
-
-    .checklist-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 16px;
-      background: var(--gray-50);
-      border: 2px solid var(--gray-200);
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .checklist-item:hover {
-      border-color: var(--primary-light);
-      background: var(--white);
-    }
-
-    .checklist-item.checked {
-      background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
-      border-color: var(--success);
-    }
-
-    .checklist-item input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      accent-color: var(--success);
-      cursor: pointer;
-    }
-
-    .checklist-item label {
-      font-size: 14px;
-      color: var(--gray-700);
-      cursor: pointer;
-      flex: 1;
-    }
-
-    .checklist-item.checked label {
-      color: var(--success);
-      font-weight: 500;
-    }
-
-    /* Condition Rating */
-    .condition-rating {
-      display: flex;
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    .rating-btn {
-      flex: 1;
-      padding: 16px;
-      border: 2px solid var(--gray-200);
-      border-radius: var(--radius);
-      background: var(--white);
-      cursor: pointer;
-      transition: var(--transition);
-      text-align: center;
-    }
-
-    .rating-btn:hover {
-      border-color: var(--primary-light);
-    }
-
-    .rating-btn.selected {
-      border-color: var(--primary);
-      background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-      color: var(--navy);
-    }
-
-    .rating-btn i {
-      font-size: 24px;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .rating-btn span {
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    /* Digital Signature */
-    .signature-pad {
-      background: var(--white);
-      border: 2px solid var(--gray-200);
-      border-radius: var(--radius);
-      cursor: crosshair;
-      touch-action: none;
-    }
-
-    .signature-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 28px;
-      border: none;
-      border-radius: var(--radius);
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      font-family: inherit;
-    }
-
-    .btn-primary {
-      background: var(--primary-gradient);
-      color: var(--navy);
-      box-shadow: var(--shadow-gold);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px -8px rgba(201, 169, 98, 0.5);
-    }
-
-    .btn-secondary {
-      background: var(--white);
-      color: var(--gray-700);
-      border: 2px solid var(--gray-200);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--primary);
-      color: var(--primary-dark);
-    }
-
-    .btn-danger {
-      background: var(--error);
-      color: var(--white);
-    }
-
-    .btn-danger:hover {
-      background: #DC2626;
-    }
-
-    .btn-success {
-      background: var(--success);
-      color: var(--white);
-    }
-
-    .btn-success:hover {
-      background: #059669;
-    }
-
-    .btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none !important;
-    }
-
-    .btn-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-
-    /* Progress */
-    .progress-container {
-      margin-top: 20px;
-    }
-
-    .progress-bar-bg {
-      height: 8px;
-      background: var(--gray-200);
-      border-radius: var(--radius-full);
-      overflow: hidden;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      background: var(--primary-gradient);
-      border-radius: var(--radius-full);
-      transition: width 0.3s ease;
-      width: 0%;
-    }
-
-    .progress-label {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 8px;
-      font-size: 13px;
-      color: var(--gray-500);
-    }
-
-    /* Toast Notifications */
-    .toast-container {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .toast {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 16px 20px;
-      border-radius: var(--radius);
-      color: var(--white);
-      font-size: 14px;
-      min-width: 320px;
-      max-width: 480px;
-      animation: slideIn 0.3s ease;
-      box-shadow: var(--shadow-xl);
-    }
-
-    @keyframes slideIn {
-      from { transform: translateX(100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-
-    .toast.success { background: var(--success); }
-    .toast.error { background: var(--error); }
-    .toast.warning { background: var(--warning); color: var(--navy); }
-    .toast.info { background: var(--info); }
-
-    .toast-icon {
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-
-    .toast-content {
-      flex: 1;
-    }
-
-    .toast-title {
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .toast-close {
-      background: none;
-      border: none;
-      color: inherit;
-      cursor: pointer;
-      opacity: 0.7;
-      transition: var(--transition);
-    }
-
-    .toast-close:hover {
-      opacity: 1;
-    }
-
-    /* Modal */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal {
-      background: var(--white);
-      border-radius: var(--radius-xl);
-      width: 90%;
-      max-width: 600px;
-      max-height: 90vh;
-      overflow: hidden;
-      transform: scale(0.9);
-      transition: var(--transition);
-    }
-
-    .modal-overlay.active .modal {
-      transform: scale(1);
-    }
-
-    .modal-header {
-      padding: 24px;
-      border-bottom: 1px solid var(--gray-200);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .modal-title {
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--navy);
-    }
-
-    .modal-close {
-      width: 36px;
-      height: 36px;
-      border: none;
-      background: var(--gray-100);
-      border-radius: var(--radius);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
-
-    .modal-close:hover {
-      background: var(--gray-200);
-    }
-
-    .modal-body {
-      padding: 24px;
-      overflow-y: auto;
-      max-height: 60vh;
-    }
-
-    .modal-footer {
-      padding: 20px 24px;
-      border-top: 1px solid var(--gray-200);
-      display: flex;
-      justify-content: flex-end;
-      gap: 12px;
-    }
-
-    /* Browse Records */
-    .records-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 20px;
-    }
-
-    .record-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      transition: var(--transition);
-      border: 2px solid transparent;
-    }
-
-    .record-card:hover {
-      border-color: var(--primary-light);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .record-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-
-    .record-type {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .record-type.checkin {
-      background: #DBEAFE;
-      color: var(--info);
-    }
-
-    .record-type.checkout {
-      background: #FEF3C7;
-      color: var(--warning);
-    }
-
-    .record-date {
-      font-size: 12px;
-      color: var(--gray-400);
-    }
-
-    .record-info {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .record-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-    }
-
-    .record-row i {
-      color: var(--primary);
-      width: 16px;
-    }
-
-    .record-row span {
-      color: var(--gray-600);
-    }
-
-    .record-row strong {
-      color: var(--navy);
-      font-weight: 600;
-    }
-
-    /* Stats Cards */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-
-    @media (max-width: 1024px) {
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 640px) {
-      .stats-grid { grid-template-columns: 1fr; }
-    }
-
-    .stat-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .stat-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--gray-50); color: var(--gray-800); min-height: 100vh; line-height: 1.6; }
+    .header { background: var(--navy); padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 80px; position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-lg); }
+    .header::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--primary-gradient); }
+    .logo-area { display: flex; align-items: center; gap: 16px; }
+    .logo-icon { width: 52px; height: 52px; background: var(--primary-gradient); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--navy); box-shadow: var(--shadow-gold); }
+    .brand-text h1 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--white); }
+    .brand-text p { font-size: 11px; color: var(--primary-light); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; }
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+    .status-badge { display: flex; align-items: center; gap: 10px; padding: 8px 16px; background: rgba(201,169,98,0.1); border: 1px solid rgba(201,169,98,0.3); border-radius: var(--radius-full); font-size: 13px; color: var(--primary-light); font-weight: 500; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-500); }
+    .status-dot.connected { background: var(--success); }
+    .btn-google { display: flex; align-items: center; gap: 10px; padding: 10px 20px; background: var(--white); border: none; border-radius: var(--radius); font-size: 13px; font-weight: 500; color: var(--gray-700); cursor: pointer; transition: var(--transition); box-shadow: var(--shadow); }
+    .btn-google:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn-google.connected { background: var(--success); color: var(--white); }
+    .nav-bar { background: var(--white); padding: 0 32px; display: flex; gap: 8px; border-bottom: 1px solid var(--gray-200); position: sticky; top: 80px; z-index: 100; }
+    .nav-btn { display: flex; align-items: center; gap: 8px; padding: 16px 24px; background: none; border: none; border-bottom: 3px solid transparent; font-size: 14px; font-weight: 500; color: var(--gray-500); cursor: pointer; transition: var(--transition); }
+    .nav-btn:hover { color: var(--navy); background: var(--gray-50); }
+    .nav-btn.active { color: var(--primary-dark); border-bottom-color: var(--primary); }
+    .nav-badge { background: var(--primary); color: var(--navy); font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-full); }
+    .main-content { max-width: 1400px; margin: 0 auto; padding: 32px; }
+    .tab-panel { display: none; animation: fadeIn 0.4s ease; }
+    .tab-panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .page-header { margin-bottom: 32px; }
+    .page-header h2 { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+    .page-header h2 span { color: var(--primary); font-style: italic; }
+    .page-header p { color: var(--gray-500); font-size: 15px; }
+    .card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 24px; transition: var(--transition); }
+    .card:hover { box-shadow: var(--shadow-md); }
+    .card-header { padding: 24px 28px; border-bottom: 1px solid var(--gray-100); display: flex; align-items: center; justify-content: space-between; }
+    .card-title { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; color: var(--navy); }
+    .card-title-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--navy); font-size: 18px; }
+    .card-body { padding: 28px; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .form-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .form-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    @media (max-width: 1024px) { .form-grid-3 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .form-grid-3, .form-grid-2 { grid-template-columns: 1fr; } }
+    .field-group { display: flex; flex-direction: column; gap: 8px; }
+    .field-label { font-size: 12px; font-weight: 600; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.05em; }
+    .field-label .required { color: var(--error); }
+    .field-hint { font-size: 12px; color: var(--gray-400); font-weight: 400; text-transform: none; }
+    .field-input, .field-select, .field-textarea { padding: 14px 16px; border: 2px solid var(--gray-200); border-radius: var(--radius); font-size: 14px; font-family: inherit; color: var(--gray-800); background: var(--white); transition: var(--transition); width: 100%; }
+    .field-input:focus, .field-select:focus, .field-textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(201,169,98,0.15); }
+    .field-input[readonly] { background: var(--gray-100); color: var(--gray-600); cursor: not-allowed; }
+    .field-textarea { min-height: 120px; resize: vertical; }
+    .input-with-icon { position: relative; }
+    .input-with-icon .field-input { padding-left: 44px; }
+    .input-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--gray-400); font-size: 16px; }
+    .emirates-id-section { background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); border: 2px dashed var(--success); border-radius: var(--radius-lg); padding: 24px; }
+    .emirates-id-preview { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px; }
+    .id-card-preview { aspect-ratio: 1.586; background: var(--white); border-radius: var(--radius); overflow: hidden; position: relative; box-shadow: var(--shadow); border: 2px solid var(--gray-200); }
+    .id-card-preview img { width: 100%; height: 100%; object-fit: cover; }
+    .id-card-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--gray-400); gap: 8px; }
+    .camera-section { background: var(--navy); border-radius: var(--radius-lg); padding: 24px; color: var(--white); }
+    .camera-container { position: relative; background: var(--navy-dark); border-radius: var(--radius); overflow: hidden; aspect-ratio: 16/9; margin-bottom: 16px; }
+    .camera-video { width: 100%; height: 100%; object-fit: cover; }
+    .camera-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); }
+    .camera-frame { width: 80%; height: 60%; border: 2px dashed var(--primary); border-radius: var(--radius); position: relative; }
+    .camera-controls { display: flex; gap: 12px; justify-content: center; }
+    .camera-btn { width: 60px; height: 60px; border-radius: 50%; border: 3px solid var(--white); background: var(--primary); cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--navy); }
+    .camera-btn:hover { transform: scale(1.1); box-shadow: 0 0 20px rgba(201,169,98,0.5); }
+    .photo-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; margin-top: 16px; }
+    .photo-item { aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; position: relative; cursor: pointer; transition: var(--transition); }
+    .photo-item:hover { transform: scale(1.05); box-shadow: var(--shadow-md); }
+    .photo-item img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-remove { position: absolute; top: 4px; right: 4px; width: 24px; height: 24px; background: var(--error); color: var(--white); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; opacity: 0; transition: var(--transition); }
+    .photo-item:hover .photo-remove { opacity: 1; }
+    .upload-zone { border: 2px dashed var(--gray-300); border-radius: var(--radius-lg); padding: 40px; text-align: center; cursor: pointer; transition: var(--transition); background: var(--gray-50); position: relative; overflow: hidden; }
+    .upload-zone:hover, .upload-zone.dragover { border-color: var(--primary); background: var(--white); }
+    .upload-icon { width: 80px; height: 80px; background: var(--primary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 32px; color: var(--navy); box-shadow: var(--shadow-gold); }
+    .upload-zone input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+    .checklist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+    .checklist-item { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: var(--radius); cursor: pointer; transition: var(--transition); }
+    .checklist-item:hover { border-color: var(--primary-light); background: var(--white); }
+    .checklist-item.checked { background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); border-color: var(--success); }
+    .checklist-item input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--success); cursor: pointer; }
+    .condition-rating { display: flex; gap: 12px; margin-top: 8px; }
+    .rating-btn { flex: 1; padding: 16px; border: 2px solid var(--gray-200); border-radius: var(--radius); background: var(--white); cursor: pointer; transition: var(--transition); text-align: center; }
+    .rating-btn:hover { border-color: var(--primary-light); }
+    .rating-btn.selected { border-color: var(--primary); background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%); color: var(--navy); }
+    .rating-btn i { font-size: 24px; margin-bottom: 8px; display: block; }
+    .signature-pad { background: var(--white); border: 2px solid var(--gray-200); border-radius: var(--radius); cursor: crosshair; touch-action: none; width: 100%; max-width: 600px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 28px; border: none; border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; transition: var(--transition); font-family: inherit; }
+    .btn-primary { background: var(--primary-gradient); color: var(--navy); box-shadow: var(--shadow-gold); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -8px rgba(201,169,98,0.5); }
+    .btn-secondary { background: var(--white); color: var(--gray-700); border: 2px solid var(--gray-200); }
+    .btn-secondary:hover { border-color: var(--primary); color: var(--primary-dark); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    .progress-container { margin-top: 20px; }
+    .progress-bar-bg { height: 8px; background: var(--gray-200); border-radius: var(--radius-full); overflow: hidden; }
+    .progress-bar-fill { height: 100%; background: var(--primary-gradient); border-radius: var(--radius-full); transition: width 0.3s ease; width: 0%; }
+    .progress-label { display: flex; justify-content: space-between; margin-top: 8px; font-size: 13px; color: var(--gray-500); }
+    .toast-container { position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; }
+    .toast { display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; border-radius: var(--radius); color: var(--white); font-size: 14px; min-width: 320px; max-width: 480px; animation: slideIn 0.3s ease; box-shadow: var(--shadow-xl); }
+    @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    .toast.success { background: var(--success); } .toast.error { background: var(--error); } .toast.warning { background: var(--warning); color: var(--navy); } .toast.info { background: var(--info); }
+    .toast-icon { font-size: 20px; flex-shrink: 0; }
+    .toast-close { background: none; border: none; color: inherit; cursor: pointer; opacity: 0.7; transition: var(--transition); margin-left: auto; }
+    .toast-close:hover { opacity: 1; }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: var(--transition); }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
+    .modal { background: var(--white); border-radius: var(--radius-xl); width: 90%; max-width: 800px; max-height: 90vh; overflow: hidden; transform: scale(0.9); transition: var(--transition); }
+    .modal-overlay.active .modal { transform: scale(1); }
+    .modal-header { padding: 24px; border-bottom: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: space-between; }
+    .modal-title { font-size: 20px; font-weight: 600; color: var(--navy); }
+    .modal-close { width: 36px; height: 36px; border: none; background: var(--gray-100); border-radius: var(--radius); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .modal-close:hover { background: var(--gray-200); }
+    .modal-body { padding: 24px; overflow-y: auto; max-height: 60vh; }
+    .records-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; }
+    .record-card { background: var(--white); border-radius: var(--radius-lg); padding: 20px; box-shadow: var(--shadow); cursor: pointer; transition: var(--transition); border: 2px solid transparent; }
+    .record-card:hover { border-color: var(--primary-light); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .record-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .record-type { display: flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: var(--radius-full); font-size: 12px; font-weight: 600; text-transform: uppercase; }
+    .record-type.checkin { background: #DBEAFE; color: var(--info); }
+    .record-type.checkout { background: #FEF3C7; color: var(--warning); }
+    .record-date { font-size: 12px; color: var(--gray-400); }
+    .record-info { display: flex; flex-direction: column; gap: 8px; }
+    .record-row { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+    .record-row i { color: var(--primary); width: 16px; }
+    .record-row strong { color: var(--navy); font-weight: 600; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 32px; }
+    @media (max-width: 1024px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .stats-grid { grid-template-columns: 1fr; } }
+    .stat-card { background: var(--white); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 16px; }
+    .stat-icon { width: 56px; height: 56px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 24px; }
     .stat-icon.gold { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); color: #D97706; }
     .stat-icon.blue { background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%); color: #2563EB; }
     .stat-icon.green { background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%); color: #059669; }
     .stat-icon.purple { background: linear-gradient(135deg, #EDE9FE 0%, #DDD6FE 100%); color: #7C3AED; }
-
-    .stat-content h4 {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1;
-    }
-
-    .stat-content p {
-      font-size: 13px;
-      color: var(--gray-500);
-      margin-top: 4px;
-    }
-
-    /* Search & Filter */
-    .search-filter-bar {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-
-    .search-box {
-      flex: 1;
-      min-width: 280px;
-      position: relative;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 14px 16px 14px 48px;
-      border: 2px solid var(--gray-200);
-      border-radius: var(--radius);
-      font-size: 14px;
-      transition: var(--transition);
-    }
-
-    .search-box input:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-
-    .search-box i {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--gray-400);
-    }
-
-    .filter-select {
-      min-width: 180px;
-    }
-
-    /* Loading Spinner */
-    .spinner {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 3px solid rgba(201, 169, 98, 0.2);
-      border-top-color: var(--primary);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Empty State */
-    .empty-state {
-      text-align: center;
-      padding: 60px 24px;
-    }
-
-    .empty-state-icon {
-      width: 100px;
-      height: 100px;
-      background: var(--gray-100);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      font-size: 40px;
-      color: var(--gray-400);
-    }
-
-    .empty-state h3 {
-      font-size: 20px;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-
-    .empty-state p {
-      color: var(--gray-500);
-      font-size: 14px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .header {
-        padding: 0 16px;
-        height: auto;
-        flex-direction: column;
-        padding: 16px;
-        gap: 16px;
-      }
-
-      .nav-bar {
-        padding: 0 16px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .main-content {
-        padding: 16px;
-      }
-
-      .page-header h2 {
-        font-size: 28px;
-      }
-
-      .card-header,
-      .card-body {
-        padding: 20px;
-      }
-    }
-
-    /* Animations */
-    .fade-in {
-      animation: fadeIn 0.4s ease;
-    }
-
-    .slide-up {
-      animation: slideUp 0.4s ease;
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* QR Code Section */
-    .qr-section {
-      text-align: center;
-      padding: 24px;
-    }
-
-    .qr-code {
-      width: 200px;
-      height: 200px;
-      background: var(--white);
-      border-radius: var(--radius);
-      margin: 0 auto 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 80px;
-      color: var(--navy);
-      border: 2px solid var(--gray-200);
-    }
-
-    /* Tags */
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      font-size: 12px;
-      font-weight: 500;
-    }
-
-    .tag-success { background: #D1FAE5; color: #059669; }
-    .tag-warning { background: #FEF3C7; color: #D97706; }
-    .tag-error { background: #FEE2E2; color: #DC2626; }
+    .stat-content h4 { font-size: 28px; font-weight: 700; color: var(--navy); line-height: 1; }
+    .stat-content p { font-size: 13px; color: var(--gray-500); margin-top: 4px; }
+    .search-filter-bar { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+    .search-box { flex: 1; min-width: 280px; position: relative; }
+    .search-box input { width: 100%; padding: 14px 16px 14px 48px; border: 2px solid var(--gray-200); border-radius: var(--radius); font-size: 14px; transition: var(--transition); }
+    .search-box input:focus { outline: none; border-color: var(--primary); }
+    .search-box i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--gray-400); }
+    .filter-select { min-width: 180px; }
+    .spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(201,169,98,0.2); border-top-color: var(--primary); border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .empty-state { text-align: center; padding: 60px 24px; }
+    .empty-state-icon { width: 100px; height: 100px; background: var(--gray-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 40px; color: var(--gray-400); }
+    .empty-state h3 { font-size: 20px; color: var(--navy); margin-bottom: 8px; }
+    .tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: var(--radius-full); font-size: 12px; font-weight: 500; }
     .tag-info { background: #DBEAFE; color: #2563EB; }
-
-    /* File List */
-    .file-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .file-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      background: var(--gray-50);
-      border-radius: var(--radius);
-      transition: var(--transition);
-    }
-
-    .file-item:hover {
-      background: var(--gray-100);
-    }
-
-    .file-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--white);
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
-
-    .file-info {
-      flex: 1;
-    }
-
-    .file-name {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--navy);
-    }
-
-    .file-meta {
-      font-size: 12px;
-      color: var(--gray-400);
-    }
-
-    .file-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .file-btn {
-      width: 32px;
-      height: 32px;
-      border: none;
-      background: var(--white);
-      border-radius: var(--radius);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-500);
-      transition: var(--transition);
-    }
-
-    .file-btn:hover {
-      background: var(--primary);
-      color: var(--navy);
-    }
+    .folder-structure { background: var(--gray-50); border-radius: var(--radius); padding: 16px; font-family: monospace; font-size: 13px; color: var(--gray-600); margin-top: 16px; }
+    .folder-tree { line-height: 1.8; }
+    .folder-tree .indent { margin-left: 20px; border-left: 1px solid var(--gray-300); padding-left: 12px; }
+    .studio-loading { display: flex; align-items: center; gap: 10px; color: var(--gray-500); font-size: 14px; padding: 10px 0; }
   </style>
 <base target="_blank">
 </head>
 <body>
-
-  <!-- Header -->
   <header class="header">
     <div class="logo-area">
       <div class="logo-icon">SA</div>
@@ -1470,93 +198,85 @@
     </div>
   </header>
 
-  <!-- Navigation -->
   <nav class="nav-bar">
     <button class="nav-btn active" onclick="switchTab('dashboard')">
-      <i class="fas fa-chart-line"></i>
-      Dashboard
+      <i class="fas fa-chart-line"></i> Dashboard
     </button>
     <button class="nav-btn" onclick="switchTab('checkin')">
-      <i class="fas fa-sign-in-alt"></i>
-      Check-In
+      <i class="fas fa-sign-in-alt"></i> Check-In
     </button>
     <button class="nav-btn" onclick="switchTab('checkout')">
-      <i class="fas fa-sign-out-alt"></i>
-      Check-Out
+      <i class="fas fa-sign-out-alt"></i> Check-Out
     </button>
     <button class="nav-btn" onclick="switchTab('browse')">
-      <i class="fas fa-folder-open"></i>
-      Records
-      <span class="nav-badge" id="recordCount">0</span>
+      <i class="fas fa-folder-open"></i> Records <span class="nav-badge" id="recordCount">0</span>
     </button>
     <button class="nav-btn" onclick="switchTab('settings')">
-      <i class="fas fa-cog"></i>
-      Settings
+      <i class="fas fa-cog"></i> Settings
     </button>
   </nav>
 
-  <!-- Main Content -->
   <main class="main-content">
-
     <!-- Dashboard Tab -->
     <div class="tab-panel active" id="tab-dashboard">
       <div class="page-header">
         <h2>Dashboard <span>Overview</span></h2>
         <p>Real-time insights into your property management</p>
       </div>
-
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-icon gold">
-            <i class="fas fa-building"></i>
-          </div>
-          <div class="stat-content">
-            <h4 id="statStudios">0</h4>
-            <p>Total Studios</p>
-          </div>
+          <div class="stat-icon gold"><i class="fas fa-building"></i></div>
+          <div class="stat-content"><h4 id="statStudios">0</h4><p>Total Studios</p></div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon blue">
-            <i class="fas fa-user-check"></i>
-          </div>
-          <div class="stat-content">
-            <h4 id="statActive">0</h4>
-            <p>Active Tenants</p>
-          </div>
+          <div class="stat-icon blue"><i class="fas fa-user-check"></i></div>
+          <div class="stat-content"><h4 id="statActive">0</h4><p>Active Tenants</p></div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon green">
-            <i class="fas fa-calendar-check"></i>
-          </div>
-          <div class="stat-content">
-            <h4 id="statCheckins">0</h4>
-            <p>Check-ins This Month</p>
-          </div>
+          <div class="stat-icon green"><i class="fas fa-calendar-check"></i></div>
+          <div class="stat-content"><h4 id="statCheckins">0</h4><p>Check-ins This Month</p></div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon purple">
-            <i class="fas fa-coins"></i>
-          </div>
-          <div class="stat-content">
-            <h4 id="statRevenue">AED 0</h4>
-            <p>Monthly Revenue</p>
-          </div>
+          <div class="stat-icon purple"><i class="fas fa-coins"></i></div>
+          <div class="stat-content"><h4 id="statRevenue">AED 0</h4><p>Monthly Revenue</p></div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-clock"></i></div>
-            Recent Activity
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-clock"></i></div>Recent Activity</div>
+          <button class="btn btn-secondary" onclick="refreshDashboard()"><i class="fas fa-sync-alt"></i> Refresh</button>
         </div>
         <div class="card-body">
           <div id="recentActivity">
             <div class="empty-state">
               <div class="empty-state-icon"><i class="fas fa-history"></i></div>
               <h3>No Recent Activity</h3>
-              <p>Check-in or check-out records will appear here</p>
+              <p>Sign in with Google to load your studio data</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-folder-tree"></i></div>Drive Folder Structure</div>
+        </div>
+        <div class="card-body">
+          <p style="color: var(--gray-500); margin-bottom: 16px;">Your files will be organized automatically in this structure:</p>
+          <div class="folder-structure">
+            <div class="folder-tree">
+              <div><i class="fas fa-folder" style="color: var(--warning);"></i> Check-In & Out (Root)</div>
+              <div class="indent">
+                <div><i class="fas fa-folder" style="color: var(--warning);"></i> z1 va2 r6 (Studio Folder)</div>
+                <div class="indent">
+                  <div><i class="fas fa-folder" style="color: var(--warning);"></i> CHECKIN_2025-01-15_Mohammed_AlRashid</div>
+                  <div class="indent">
+                    <div><i class="fas fa-folder" style="color: var(--warning);"></i> 01_Images (Property Photos)</div>
+                    <div><i class="fas fa-folder" style="color: var(--warning);"></i> 02_ID_Documents (Emirates ID)</div>
+                    <div><i class="fas fa-folder" style="color: var(--warning);"></i> 03_Documents (Contract, Signature)</div>
+                    <div><i class="fas fa-file" style="color: var(--info);"></i> tenant_info.json</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1570,13 +290,32 @@
         <p>Record tenant arrival with Emirates ID verification and property inspection</p>
       </div>
 
+      <!-- Studio Selection -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-building"></i></div>Select Studio</div>
+          <button class="btn btn-secondary" onclick="refreshStudios()"><i class="fas fa-sync-alt"></i> Refresh from Drive</button>
+        </div>
+        <div class="card-body">
+          <div class="field-group">
+            <label class="field-label">Studio <span class="required">*</span></label>
+            <select class="field-select" id="ci-studio" onchange="onStudioSelect()">
+              <option value="">-- Select a studio from Drive --</option>
+            </select>
+            <div class="studio-loading" id="studioLoading" style="display:none;">
+              <span class="spinner"></span><span>Loading studios from Google Drive...</span>
+            </div>
+          </div>
+          <div id="selectedStudioInfo" style="margin-top: 16px; display:none;">
+            <span class="tag tag-info"><i class="fas fa-folder"></i><span id="studioFolderPath"></span></span>
+          </div>
+        </div>
+      </div>
+
       <!-- Tenant Information -->
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-user"></i></div>
-            Tenant Information
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-user"></i></div>Tenant Information</div>
         </div>
         <div class="card-body">
           <div class="form-grid">
@@ -1626,10 +365,7 @@
       <!-- Emirates ID Section -->
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-id-card"></i></div>
-            Emirates ID Verification
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-id-card"></i></div>Emirates ID Verification</div>
         </div>
         <div class="card-body">
           <div class="emirates-id-section">
@@ -1643,33 +379,20 @@
                 <input type="date" class="field-input" id="ci-id-expiry">
               </div>
             </div>
-            
             <div style="margin-top: 20px;">
-              <label class="field-label">ID Document Photos <span class="field-hint">Front & Back</span></label>
+              <label class="field-label">ID Document Photos <span class="field-hint">Front & Back - Required</span></label>
               <div class="emirates-id-preview">
                 <div class="id-card-preview" id="idFrontPreview">
-                  <div class="id-card-placeholder">
-                    <i class="fas fa-id-card"></i>
-                    <span>Front Side</span>
-                  </div>
+                  <div class="id-card-placeholder"><i class="fas fa-id-card"></i><span>Front Side</span></div>
                 </div>
                 <div class="id-card-preview" id="idBackPreview">
-                  <div class="id-card-placeholder">
-                    <i class="fas fa-id-card"></i>
-                    <span>Back Side</span>
-                  </div>
+                  <div class="id-card-placeholder"><i class="fas fa-id-card"></i><span>Back Side</span></div>
                 </div>
               </div>
               <div class="btn-row" style="margin-top: 16px;">
-                <button class="btn btn-secondary" onclick="openCamera('idFront')">
-                  <i class="fas fa-camera"></i> Capture Front
-                </button>
-                <button class="btn btn-secondary" onclick="openCamera('idBack')">
-                  <i class="fas fa-camera"></i> Capture Back
-                </button>
-                <button class="btn btn-secondary" onclick="document.getElementById('idFileInput').click()">
-                  <i class="fas fa-upload"></i> Upload Files
-                </button>
+                <button class="btn btn-secondary" onclick="openCamera('idFront')"><i class="fas fa-camera"></i> Capture Front</button>
+                <button class="btn btn-secondary" onclick="openCamera('idBack')"><i class="fas fa-camera"></i> Capture Back</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('idFileInput').click()"><i class="fas fa-upload"></i> Upload Files</button>
                 <input type="file" id="idFileInput" accept="image/*" multiple style="display:none" onchange="handleIdUpload(event)">
               </div>
             </div>
@@ -1680,30 +403,10 @@
       <!-- Stay Details -->
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-home"></i></div>
-            Stay Details
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-home"></i></div>Stay Details</div>
         </div>
         <div class="card-body">
           <div class="form-grid-3">
-            <div class="field-group">
-              <label class="field-label">Studio/Unit <span class="required">*</span></label>
-              <select class="field-select" id="ci-studio">
-                <option value="">Select Studio...</option>
-              </select>
-            </div>
-            <div class="field-group">
-              <label class="field-label">Floor/Building</label>
-              <input type="text" class="field-input" id="ci-floor" placeholder="e.g. Floor 3, Tower B">
-            </div>
-            <div class="field-group">
-              <label class="field-label">Monthly Rent (AED)</label>
-              <div class="input-with-icon">
-                <i class="fas fa-coins input-icon"></i>
-                <input type="number" class="field-input" id="ci-rent" placeholder="4500">
-              </div>
-            </div>
             <div class="field-group">
               <label class="field-label">Check-In Date <span class="required">*</span></label>
               <input type="date" class="field-input" id="ci-checkin-date" onchange="calculateDuration()">
@@ -1715,6 +418,13 @@
             <div class="field-group">
               <label class="field-label">Duration</label>
               <input type="text" class="field-input" id="ci-duration" readonly placeholder="Auto-calculated">
+            </div>
+            <div class="field-group">
+              <label class="field-label">Monthly Rent (AED)</label>
+              <div class="input-with-icon">
+                <i class="fas fa-coins input-icon"></i>
+                <input type="number" class="field-input" id="ci-rent" placeholder="4500">
+              </div>
             </div>
             <div class="field-group">
               <label class="field-label">Security Deposit (AED)</label>
@@ -1741,38 +451,19 @@
       <!-- Property Condition -->
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-clipboard-check"></i></div>
-            Property Condition Checklist
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-clipboard-check"></i></div>Property Condition Checklist</div>
         </div>
         <div class="card-body">
-          <div class="checklist-grid" id="ci-checklist">
-            <!-- Checklist items generated by JS -->
-          </div>
-          
+          <div class="checklist-grid" id="ci-checklist"></div>
           <div style="margin-top: 24px;">
             <label class="field-label">Overall Condition Rating</label>
             <div class="condition-rating">
-              <button type="button" class="rating-btn" data-rating="excellent" onclick="selectRating(this)">
-                <i class="fas fa-laugh-beam"></i>
-                <span>Excellent</span>
-              </button>
-              <button type="button" class="rating-btn" data-rating="good" onclick="selectRating(this)">
-                <i class="fas fa-smile"></i>
-                <span>Good</span>
-              </button>
-              <button type="button" class="rating-btn" data-rating="fair" onclick="selectRating(this)">
-                <i class="fas fa-meh"></i>
-                <span>Fair</span>
-              </button>
-              <button type="button" class="rating-btn" data-rating="poor" onclick="selectRating(this)">
-                <i class="fas fa-frown"></i>
-                <span>Poor</span>
-              </button>
+              <button type="button" class="rating-btn" data-rating="excellent" onclick="selectRating(this)"><i class="fas fa-laugh-beam"></i><span>Excellent</span></button>
+              <button type="button" class="rating-btn" data-rating="good" onclick="selectRating(this)"><i class="fas fa-smile"></i><span>Good</span></button>
+              <button type="button" class="rating-btn" data-rating="fair" onclick="selectRating(this)"><i class="fas fa-meh"></i><span>Fair</span></button>
+              <button type="button" class="rating-btn" data-rating="poor" onclick="selectRating(this)"><i class="fas fa-frown"></i><span>Poor</span></button>
             </div>
           </div>
-
           <div class="field-group" style="margin-top: 24px;">
             <label class="field-label">Notes & Observations</label>
             <textarea class="field-textarea" id="ci-notes" placeholder="Describe any existing damages, special conditions, or important notes..."></textarea>
@@ -1783,10 +474,7 @@
       <!-- Photo Documentation -->
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-camera"></i></div>
-            Photo Documentation
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-camera"></i></div>Photo Documentation</div>
         </div>
         <div class="card-body">
           <div class="camera-section">
@@ -1798,18 +486,11 @@
               </div>
             </div>
             <div class="camera-controls">
-              <button class="camera-btn" onclick="startCamera()" title="Start Camera">
-                <i class="fas fa-video"></i>
-              </button>
-              <button class="camera-btn" onclick="capturePhoto()" title="Take Photo">
-                <i class="fas fa-camera"></i>
-              </button>
-              <button class="camera-btn" onclick="stopCamera()" title="Stop Camera">
-                <i class="fas fa-stop"></i>
-              </button>
+              <button class="camera-btn" onclick="startCamera()" title="Start Camera"><i class="fas fa-video"></i></button>
+              <button class="camera-btn" onclick="capturePhoto()" title="Take Photo"><i class="fas fa-camera"></i></button>
+              <button class="camera-btn" onclick="stopCamera()" title="Stop Camera"><i class="fas fa-stop"></i></button>
             </div>
           </div>
-
           <div class="upload-zone" style="margin-top: 20px;" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" onclick="document.getElementById('photoUpload').click()">
             <input type="file" id="photoUpload" accept="image/*,video/*" multiple onchange="handlePhotoUpload(event)">
             <div class="upload-zone-content">
@@ -1818,48 +499,32 @@
               <p>Drag & drop files here or click to browse</p>
             </div>
           </div>
-
-          <div class="photo-gallery" id="photoGallery">
-            <!-- Photos will appear here -->
-          </div>
+          <div class="photo-gallery" id="photoGallery"></div>
         </div>
       </div>
 
       <!-- Digital Signature -->
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-signature"></i></div>
-            Digital Signature
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-signature"></i></div>Digital Signature</div>
         </div>
         <div class="card-body">
           <canvas class="signature-pad" id="signaturePad" width="600" height="200"></canvas>
           <div class="signature-actions">
-            <button class="btn btn-secondary" onclick="clearSignature()">
-              <i class="fas fa-eraser"></i> Clear
-            </button>
-            <button class="btn btn-secondary" onclick="saveSignature()">
-              <i class="fas fa-save"></i> Save Signature
-            </button>
+            <button class="btn btn-secondary" onclick="clearSignature()"><i class="fas fa-eraser"></i> Clear</button>
+            <button class="btn btn-secondary" onclick="saveSignature()"><i class="fas fa-save"></i> Save Signature</button>
           </div>
         </div>
       </div>
 
       <!-- Submit -->
       <div class="btn-row">
-        <button class="btn btn-primary" onclick="submitCheckIn()">
-          <i class="fas fa-check-circle"></i> Submit Check-In & Upload to Drive
-        </button>
-        <button class="btn btn-secondary" onclick="resetCheckIn()">
-          <i class="fas fa-redo"></i> Reset Form
-        </button>
+        <button class="btn btn-primary" onclick="submitCheckIn()" id="btnSubmitCheckin"><i class="fas fa-check-circle"></i> Submit Check-In & Upload to Drive</button>
+        <button class="btn btn-secondary" onclick="resetCheckIn()"><i class="fas fa-redo"></i> Reset Form</button>
       </div>
 
       <div class="progress-container" id="ciProgress" style="display:none;">
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" id="ciProgressBar"></div>
-        </div>
+        <div class="progress-bar-bg"><div class="progress-bar-fill" id="ciProgressBar"></div></div>
         <div class="progress-label">
           <span id="ciProgressText">Uploading...</span>
           <span id="ciProgressPercent">0%</span>
@@ -1877,39 +542,32 @@
       <!-- Load Record -->
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-search"></i></div>
-            Load Check-In Record
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-search"></i></div>Load Check-In Record</div>
+          <button class="btn btn-secondary" onclick="refreshCheckoutStudios()"><i class="fas fa-sync-alt"></i> Refresh</button>
         </div>
         <div class="card-body">
           <div class="form-grid-2">
             <div class="field-group">
               <label class="field-label">Select Studio</label>
               <select class="field-select" id="co-studio-select" onchange="loadStaysForCheckout()">
-                <option value="">Select Studio...</option>
+                <option value="">-- Select Studio --</option>
               </select>
             </div>
             <div class="field-group">
               <label class="field-label">Select Stay</label>
               <select class="field-select" id="co-stay-select">
-                <option value="">Select Stay...</option>
+                <option value="">-- Select Stay --</option>
               </select>
             </div>
           </div>
-          <button class="btn btn-secondary" style="margin-top: 16px;" onclick="loadCheckoutData()">
-            <i class="fas fa-download"></i> Load Check-In Data
-          </button>
+          <button class="btn btn-secondary" style="margin-top: 16px;" onclick="loadCheckoutData()"><i class="fas fa-download"></i> Load Check-In Data</button>
         </div>
       </div>
 
       <!-- Check-Out Details -->
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-door-open"></i></div>
-            Check-Out Details
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-door-open"></i></div>Check-Out Details</div>
         </div>
         <div class="card-body">
           <div class="form-grid-3">
@@ -1964,16 +622,10 @@
       <!-- Check-Out Condition -->
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-clipboard-list"></i></div>
-            Check-Out Condition
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-clipboard-list"></i></div>Check-Out Condition</div>
         </div>
         <div class="card-body">
-          <div class="checklist-grid" id="co-checklist">
-            <!-- Checklist items -->
-          </div>
-          
+          <div class="checklist-grid" id="co-checklist"></div>
           <div class="field-group" style="margin-top: 24px;">
             <label class="field-label">Departure Notes / Damages</label>
             <textarea class="field-textarea" id="co-notes" placeholder="Describe any damages found, missing items, or cleaning required..."></textarea>
@@ -1984,10 +636,7 @@
       <!-- Check-Out Photos -->
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-images"></i></div>
-            Check-Out Photos
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-images"></i></div>Check-Out Photos</div>
         </div>
         <div class="card-body">
           <div class="upload-zone" onclick="document.getElementById('coPhotoUpload').click()">
@@ -2003,12 +652,8 @@
       </div>
 
       <div class="btn-row">
-        <button class="btn btn-primary" onclick="submitCheckOut()">
-          <i class="fas fa-check-circle"></i> Submit Check-Out
-        </button>
-        <button class="btn btn-secondary" onclick="resetCheckOut()">
-          <i class="fas fa-redo"></i> Reset
-        </button>
+        <button class="btn btn-primary" onclick="submitCheckOut()"><i class="fas fa-check-circle"></i> Submit Check-Out</button>
+        <button class="btn btn-secondary" onclick="resetCheckOut()"><i class="fas fa-redo"></i> Reset</button>
       </div>
     </div>
 
@@ -2016,35 +661,28 @@
     <div class="tab-panel" id="tab-browse">
       <div class="page-header">
         <h2><span>Browse</span> Records</h2>
-        <p>View and manage all check-in/check-out records</p>
+        <p>View and manage all check-in/check-out records from Google Drive</p>
       </div>
-
       <div class="search-filter-bar">
         <div class="search-box">
           <i class="fas fa-search"></i>
-          <input type="text" placeholder="Search by tenant name, studio, or ID..." id="searchRecords">
+          <input type="text" placeholder="Search by tenant name, studio, or ID..." id="searchRecords" onkeyup="filterRecords()">
         </div>
-        <select class="field-select filter-select" id="filterStudio">
+        <select class="field-select filter-select" id="filterStudio" onchange="filterRecords()">
           <option value="">All Studios</option>
         </select>
-        <select class="field-select filter-select" id="filterType">
+        <select class="field-select filter-select" id="filterType" onchange="filterRecords()">
           <option value="">All Types</option>
           <option value="checkin">Check-In</option>
           <option value="checkout">Check-Out</option>
         </select>
-        <select class="field-select filter-select" id="filterDate">
-          <option value="">All Time</option>
-          <option value="today">Today</option>
-          <option value="week">This Week</option>
-          <option value="month">This Month</option>
-        </select>
+        <button class="btn btn-secondary" onclick="refreshRecords()"><i class="fas fa-sync-alt"></i> Refresh</button>
       </div>
-
       <div class="records-grid" id="recordsGrid">
         <div class="empty-state">
           <div class="empty-state-icon"><i class="fas fa-folder-open"></i></div>
           <h3>No Records Found</h3>
-          <p>Records will appear here after you save check-ins or check-outs</p>
+          <p>Sign in with Google to load your records</p>
         </div>
       </div>
     </div>
@@ -2055,13 +693,9 @@
         <h2>System <span>Settings</span></h2>
         <p>Configure your Google Drive integration and preferences</p>
       </div>
-
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-cloud"></i></div>
-            Google Drive Configuration
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-cloud"></i></div>Google Drive Configuration</div>
         </div>
         <div class="card-body">
           <div class="form-grid-2">
@@ -2071,57 +705,41 @@
             </div>
             <div class="field-group">
               <label class="field-label">Root Folder ID</label>
-              <input type="text" class="field-input" id="settingFolderId" placeholder="Google Drive Folder ID">
+              <input type="text" class="field-input" id="settingFolderId" value="1JP-T6pbFdmJM6FlwheOV554gPP8mLCBX" placeholder="Google Drive Folder ID">
             </div>
           </div>
           <div class="btn-row">
-            <button class="btn btn-primary" onclick="saveSettings()">
-              <i class="fas fa-save"></i> Save Settings
-            </button>
-            <button class="btn btn-secondary" onclick="testConnection()">
-              <i class="fas fa-plug"></i> Test Connection
-            </button>
+            <button class="btn btn-primary" onclick="saveSettings()"><i class="fas fa-save"></i> Save Settings</button>
+            <button class="btn btn-secondary" onclick="testConnection()"><i class="fas fa-plug"></i> Test Connection</button>
           </div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
-          <div class="card-title">
-            <div class="card-title-icon"><i class="fas fa-building"></i></div>
-            Studio Management
-          </div>
+          <div class="card-title"><div class="card-title-icon"><i class="fas fa-info-circle"></i></div>System Information</div>
         </div>
         <div class="card-body">
-          <div class="field-group">
-            <label class="field-label">Add New Studio</label>
-            <div style="display: flex; gap: 12px;">
-              <input type="text" class="field-input" id="newStudioName" placeholder="Studio name (e.g. Studio A-101)" style="flex: 1;">
-              <button class="btn btn-primary" onclick="addStudio()">
-                <i class="fas fa-plus"></i> Add
-              </button>
+          <div class="form-grid-2">
+            <div class="field-group">
+              <label class="field-label">Version</label>
+              <input type="text" class="field-input" value="2.0.0" readonly>
             </div>
-          </div>
-          <div style="margin-top: 20px;">
-            <label class="field-label">Existing Studios</label>
-            <div class="file-list" id="studioList">
-              <!-- Studios will be listed here -->
+            <div class="field-group">
+              <label class="field-label">Last Sync</label>
+              <input type="text" class="field-input" id="lastSyncTime" value="Never" readonly>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </main>
 
   <!-- Camera Modal -->
   <div class="modal-overlay" id="cameraModal">
-    <div class="modal" style="max-width: 800px;">
+    <div class="modal">
       <div class="modal-header">
         <h3 class="modal-title"><i class="fas fa-camera"></i> Capture Photo</h3>
-        <button class="modal-close" onclick="closeCameraModal()">
-          <i class="fas fa-times"></i>
-        </button>
+        <button class="modal-close" onclick="closeCameraModal()"><i class="fas fa-times"></i></button>
       </div>
       <div class="modal-body">
         <div class="camera-section" style="margin: 0;">
@@ -2130,9 +748,7 @@
             <canvas id="modalCameraCanvas" style="display:none;"></canvas>
           </div>
           <div class="camera-controls">
-            <button class="camera-btn" onclick="captureModalPhoto()">
-              <i class="fas fa-camera"></i>
-            </button>
+            <button class="camera-btn" onclick="captureModalPhoto()"><i class="fas fa-camera"></i></button>
           </div>
         </div>
       </div>
@@ -2143,19 +759,14 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <script>
-    // ==========================
     // CONFIGURATION
-    // ==========================
     const CONFIG = {
       CLIENT_ID: '433302852285-ofo7g69rfe2e98eaa62a9s1okh8djdal.apps.googleusercontent.com',
       ROOT_FOLDER_ID: '1JP-T6pbFdmJM6FlwheOV554gPP8mLCBX',
-      DRIVE_SCOPE: 'https://www.googleapis.com/auth/drive',
-      DISCOVERY_DOCS: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest']
+      DRIVE_SCOPE: 'https://www.googleapis.com/auth/drive'
     };
 
-    // ==========================
     // STATE
-    // ==========================
     let accessToken = null;
     let tokenClient = null;
     let currentStream = null;
@@ -2164,11 +775,10 @@
     let idPhotos = { front: null, back: null };
     let currentCameraTarget = null;
     let studios = [];
+    let studioFolders = {};
     let records = [];
+    let allRecords = [];
 
-    // ==========================
-    // CHECKLIST ITEMS
-    // ==========================
     const checklistItems = [
       { id: 'keys', label: 'Keys Received', icon: 'fa-key' },
       { id: 'ac', label: 'Air Conditioning', icon: 'fa-snowflake' },
@@ -2190,17 +800,12 @@
       { id: 'fire', label: 'Fire Extinguisher', icon: 'fa-fire-extinguisher' }
     ];
 
-    // ==========================
     // INITIALIZATION
-    // ==========================
     document.addEventListener('DOMContentLoaded', () => {
       initializeChecklists();
       initializeSignaturePad();
       initializeDateFields();
-      loadStudios();
-      updateStats();
-      
-      // Initialize Google Identity Services
+      loadSettings();
       if (typeof google !== 'undefined' && google.accounts) {
         initTokenClient();
       } else {
@@ -2211,15 +816,12 @@
     function initializeChecklists() {
       const ciContainer = document.getElementById('ci-checklist');
       const coContainer = document.getElementById('co-checklist');
-      
-      const generateChecklist = (prefix) => checklistItems.map(item => `
-        <label class="checklist-item" id="${prefix}-chk-${item.id}">
-          <input type="checkbox" onchange="toggleChecklistItem('${prefix}', '${item.id}')">
-          <i class="fas ${item.icon}" style="color: var(--primary); width: 20px;"></i>
-          <span>${item.label}</span>
-        </label>
-      `).join('');
-      
+      const generateChecklist = (prefix) => checklistItems.map(item => 
+        `<label class="checklist-item" id="${prefix}-chk-${item.id}">` +
+        `<input type="checkbox" onchange="toggleChecklistItem('${prefix}', '${item.id}')">` +
+        `<i class="fas ${item.icon}" style="color: var(--primary); width: 20px;"></i>` +
+        `<span>${item.label}</span></label>`
+      ).join('');
       ciContainer.innerHTML = generateChecklist('ci');
       coContainer.innerHTML = generateChecklist('co');
     }
@@ -2230,15 +832,16 @@
       document.getElementById('co-checkout-date').value = today;
     }
 
-    // ==========================
-    // GOOGLE AUTH
-    // ==========================
-    function initTokenClient() {
-      if (!google?.accounts?.oauth2) {
-        showToast('Google Identity Services not loaded', 'error');
-        return;
-      }
+    function loadSettings() {
+      const savedClientId = localStorage.getItem('clientId');
+      const savedFolderId = localStorage.getItem('folderId');
+      if (savedClientId) { CONFIG.CLIENT_ID = savedClientId; document.getElementById('settingClientId').value = savedClientId; }
+      if (savedFolderId) { CONFIG.ROOT_FOLDER_ID = savedFolderId; document.getElementById('settingFolderId').value = savedFolderId; }
+    }
 
+    // GOOGLE AUTH
+    function initTokenClient() {
+      if (!google?.accounts?.oauth2) { showToast('Google Identity Services not loaded', 'error'); return; }
       tokenClient = google.accounts.oauth2.initTokenClient({
         client_id: CONFIG.CLIENT_ID,
         scope: CONFIG.DRIVE_SCOPE,
@@ -2247,32 +850,17 @@
     }
 
     function handleAuth() {
-      if (!tokenClient) {
-        showToast('Authentication not ready. Please refresh.', 'error');
-        return;
-      }
-
-      if (accessToken) {
-        // Sign out
-        accessToken = null;
-        updateAuthUI(false);
-        showToast('Signed out successfully', 'info');
-      } else {
-        // Sign in
-        tokenClient.requestAccessToken({ prompt: 'consent' });
-      }
+      if (!tokenClient) { showToast('Authentication not ready', 'error'); return; }
+      if (accessToken) { accessToken = null; updateAuthUI(false); showToast('Signed out', 'info'); }
+      else { tokenClient.requestAccessToken({ prompt: 'consent' }); }
     }
 
     function handleAuthResponse(response) {
-      if (response.error) {
-        showToast('Authentication failed: ' + response.error, 'error');
-        return;
-      }
-
+      if (response.error) { showToast('Auth failed: ' + response.error, 'error'); return; }
       accessToken = response.access_token;
       updateAuthUI(true);
-      showToast('Successfully connected to Google Drive!', 'success');
-      loadDriveStudios();
+      showToast('Connected to Google Drive!', 'success');
+      loadStudiosFromDrive();
     }
 
     function updateAuthUI(connected) {
@@ -2280,7 +868,6 @@
       const statusText = document.getElementById('statusText');
       const authBtn = document.getElementById('authBtn');
       const authBtnText = document.getElementById('authBtnText');
-
       if (connected) {
         statusDot.classList.add('connected');
         statusText.textContent = 'Connected';
@@ -2294,52 +881,91 @@
       }
     }
 
-    // ==========================
-    // CAMERA FUNCTIONALITY
-    // ==========================
+    // LOAD STUDIOS FROM DRIVE
+    async function loadStudiosFromDrive() {
+      if (!accessToken) { showToast('Please sign in first', 'error'); return; }
+      document.getElementById('studioLoading').style.display = 'flex';
+      try {
+        const response = await fetch(
+          `https://www.googleapis.com/drive/v3/files?q='${CONFIG.ROOT_FOLDER_ID}'+in+parents+and+mimeType='application/vnd.google-apps.folder'+and+trashed=false&fields=files(id,name,modifiedTime)&orderBy=name`,
+          { headers: { 'Authorization': `Bearer ${accessToken}` } }
+        );
+        if (!response.ok) throw new Error(`Drive API error: ${response.status}`);
+        const data = await response.json();
+        studios = (data.files || []).map(f => ({ id: f.id, name: f.name, modifiedTime: f.modifiedTime }));
+        studioFolders = {};
+        studios.forEach(s => { studioFolders[s.name] = s.id; });
+        updateStudioSelects();
+        updateStats();
+        document.getElementById('lastSyncTime').value = new Date().toLocaleString();
+        showToast(`Loaded ${studios.length} studios from Drive`, 'success');
+      } catch (err) {
+        console.error('Error loading studios:', err);
+        showToast('Failed to load studios: ' + err.message, 'error');
+      } finally {
+        document.getElementById('studioLoading').style.display = 'none';
+      }
+    }
+
+    function updateStudioSelects() {
+      const selects = ['ci-studio', 'co-studio-select', 'filterStudio'];
+      selects.forEach(id => {
+        const select = document.getElementById(id);
+        if (select) {
+          const currentValue = select.value;
+          select.innerHTML = '<option value="">-- Select Studio --</option>' +
+            studios.map(s => `<option value="${s.name}" data-id="${s.id}">${s.name}</option>`).join('');
+          select.value = currentValue;
+        }
+      });
+      document.getElementById('statStudios').textContent = studios.length;
+    }
+
+    function refreshStudios() { loadStudiosFromDrive(); }
+    function refreshCheckoutStudios() { loadStudiosFromDrive(); }
+
+    function onStudioSelect() {
+      const select = document.getElementById('ci-studio');
+      const studioName = select.value;
+      const infoDiv = document.getElementById('selectedStudioInfo');
+      const pathSpan = document.getElementById('studioFolderPath');
+      if (studioName && studioFolders[studioName]) {
+        pathSpan.textContent = `Check-In & Out > ${studioName}`;
+        infoDiv.style.display = 'block';
+      } else {
+        infoDiv.style.display = 'none';
+      }
+    }
+
+    // CAMERA
     async function startCamera() {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ 
-          video: { facingMode: 'environment' }, 
-          audio: false 
-        });
-        
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
         const video = document.getElementById('cameraVideo');
         video.srcObject = stream;
         currentStream = stream;
-        
         document.getElementById('cameraOverlay').style.display = 'none';
         showToast('Camera started', 'success');
-      } catch (err) {
-        showToast('Camera access denied: ' + err.message, 'error');
-      }
+      } catch (err) { showToast('Camera access denied: ' + err.message, 'error'); }
     }
 
     function stopCamera() {
       if (currentStream) {
         currentStream.getTracks().forEach(track => track.stop());
         currentStream = null;
-        
-        const video = document.getElementById('cameraVideo');
-        video.srcObject = null;
+        document.getElementById('cameraVideo').srcObject = null;
         document.getElementById('cameraOverlay').style.display = 'flex';
       }
     }
 
     function capturePhoto() {
-      if (!currentStream) {
-        showToast('Please start the camera first', 'warning');
-        return;
-      }
-
+      if (!currentStream) { showToast('Please start camera first', 'warning'); return; }
       const video = document.getElementById('cameraVideo');
       const canvas = document.getElementById('cameraCanvas');
       const ctx = canvas.getContext('2d');
-
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
       ctx.drawImage(video, 0, 0);
-
       const photoData = canvas.toDataURL('image/jpeg', 0.9);
       addPhotoToGallery(photoData);
       showToast('Photo captured!', 'success');
@@ -2358,16 +984,9 @@
 
     async function startModalCamera() {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ 
-          video: { facingMode: 'environment' }, 
-          audio: false 
-        });
-        
-        const video = document.getElementById('modalCameraVideo');
-        video.srcObject = stream;
-      } catch (err) {
-        showToast('Camera access denied', 'error');
-      }
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
+        document.getElementById('modalCameraVideo').srcObject = stream;
+      } catch (err) { showToast('Camera access denied', 'error'); }
     }
 
     function stopModalCamera() {
@@ -2382,33 +1001,21 @@
       const video = document.getElementById('modalCameraVideo');
       const canvas = document.getElementById('modalCameraCanvas');
       const ctx = canvas.getContext('2d');
-
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
       ctx.drawImage(video, 0, 0);
-
       const photoData = canvas.toDataURL('image/jpeg', 0.9);
-      
-      if (currentCameraTarget === 'idFront') {
-        idPhotos.front = photoData;
-        updateIdPreview('idFrontPreview', photoData);
-      } else if (currentCameraTarget === 'idBack') {
-        idPhotos.back = photoData;
-        updateIdPreview('idBackPreview', photoData);
-      }
-
+      if (currentCameraTarget === 'idFront') { idPhotos.front = photoData; updateIdPreview('idFrontPreview', photoData); }
+      else if (currentCameraTarget === 'idBack') { idPhotos.back = photoData; updateIdPreview('idBackPreview', photoData); }
       closeCameraModal();
       showToast('ID photo captured!', 'success');
     }
 
     function updateIdPreview(elementId, photoData) {
-      const element = document.getElementById(elementId);
-      element.innerHTML = `<img src="${photoData}" alt="ID Photo">`;
+      document.getElementById(elementId).innerHTML = `<img src="${photoData}" alt="ID Photo">`;
     }
 
-    // ==========================
-    // FILE UPLOAD HANDLING
-    // ==========================
+    // FILE UPLOAD
     function handlePhotoUpload(event) {
       const files = Array.from(event.target.files);
       files.forEach(file => {
@@ -2424,18 +1031,12 @@
       const files = Array.from(event.target.files);
       if (files.length >= 1 && !idPhotos.front) {
         const reader = new FileReader();
-        reader.onload = (e) => {
-          idPhotos.front = e.target.result;
-          updateIdPreview('idFrontPreview', e.target.result);
-        };
+        reader.onload = (e) => { idPhotos.front = e.target.result; updateIdPreview('idFrontPreview', e.target.result); };
         reader.readAsDataURL(files[0]);
       }
       if (files.length >= 2 && !idPhotos.back) {
         const reader = new FileReader();
-        reader.onload = (e) => {
-          idPhotos.back = e.target.result;
-          updateIdPreview('idBackPreview', e.target.result);
-        };
+        reader.onload = (e) => { idPhotos.back = e.target.result; updateIdPreview('idBackPreview', e.target.result); };
         reader.readAsDataURL(files[1]);
       }
     }
@@ -2447,14 +1048,10 @@
 
     function renderPhotoGallery() {
       const gallery = document.getElementById('photoGallery');
-      gallery.innerHTML = capturedPhotos.map((photo, index) => `
-        <div class="photo-item">
-          <img src="${photo}" alt="Photo ${index + 1}">
-          <button class="photo-remove" onclick="removePhoto(${index})">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-      `).join('');
+      gallery.innerHTML = capturedPhotos.map((photo, index) => 
+        `<div class="photo-item"><img src="${photo}" alt="Photo ${index + 1}">` +
+        `<button class="photo-remove" onclick="removePhoto(${index})"><i class="fas fa-times"></i></button></div>`
+      ).join('');
     }
 
     function removePhoto(index) {
@@ -2462,15 +1059,10 @@
       renderPhotoGallery();
     }
 
-    function handleDragOver(event) {
-      event.preventDefault();
-      event.currentTarget.classList.add('dragover');
-    }
-
+    function handleDragOver(event) { event.preventDefault(); event.currentTarget.classList.add('dragover'); }
     function handleDrop(event) {
       event.preventDefault();
       event.currentTarget.classList.remove('dragover');
-      
       const files = Array.from(event.dataTransfer.files);
       files.forEach(file => {
         if (file.type.startsWith('image/')) {
@@ -2481,57 +1073,55 @@
       });
     }
 
-    // ==========================
-    // DIGITAL SIGNATURE
-    // ==========================
-    let signaturePad, signatureCtx;
-    let isDrawing = false;
-
+    // SIGNATURE PAD
+    let signatureCtx, isDrawing = false;
     function initializeSignaturePad() {
       const canvas = document.getElementById('signaturePad');
       signatureCtx = canvas.getContext('2d');
-      
-      // Set up drawing
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      signatureCtx.scale(dpr, dpr);
+      canvas.style.width = rect.width + 'px';
+      canvas.style.height = rect.height + 'px';
       canvas.addEventListener('mousedown', startDrawing);
       canvas.addEventListener('mousemove', draw);
       canvas.addEventListener('mouseup', stopDrawing);
       canvas.addEventListener('mouseout', stopDrawing);
-      
-      // Touch support
       canvas.addEventListener('touchstart', handleTouch);
       canvas.addEventListener('touchmove', handleTouch);
       canvas.addEventListener('touchend', stopDrawing);
-
-      // Set initial style
       signatureCtx.strokeStyle = '#1A1F36';
       signatureCtx.lineWidth = 2;
       signatureCtx.lineCap = 'round';
+      signatureCtx.lineJoin = 'round';
     }
 
     function startDrawing(e) {
       isDrawing = true;
       const rect = e.target.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
       signatureCtx.beginPath();
-      signatureCtx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+      signatureCtx.moveTo((e.clientX - rect.left) * dpr, (e.clientY - rect.top) * dpr);
     }
 
     function draw(e) {
       if (!isDrawing) return;
       const rect = e.target.getBoundingClientRect();
-      signatureCtx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      const dpr = window.devicePixelRatio || 1;
+      signatureCtx.lineTo((e.clientX - rect.left) * dpr, (e.clientY - rect.top) * dpr);
       signatureCtx.stroke();
     }
 
-    function stopDrawing() {
-      isDrawing = false;
-    }
+    function stopDrawing() { isDrawing = false; }
 
     function handleTouch(e) {
       e.preventDefault();
       const touch = e.touches[0];
+      const rect = e.target.getBoundingClientRect();
       const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : 'mousemove', {
-        clientX: touch.clientX,
-        clientY: touch.clientY
+        clientX: touch.clientX, clientY: touch.clientY
       });
       e.target.dispatchEvent(mouseEvent);
     }
@@ -2543,15 +1133,11 @@
 
     function saveSignature() {
       const canvas = document.getElementById('signaturePad');
-      const signatureData = canvas.toDataURL('image/png');
-      // Store for submission
-      window.checkinSignature = signatureData;
+      window.checkinSignature = canvas.toDataURL('image/png');
       showToast('Signature saved!', 'success');
     }
 
-    // ==========================
     // FORM HELPERS
-    // ==========================
     function toggleChecklistItem(prefix, id) {
       const item = document.getElementById(`${prefix}-chk-${id}`);
       const checkbox = item.querySelector('input[type="checkbox"]');
@@ -2566,19 +1152,13 @@
     function calculateDuration() {
       const checkin = document.getElementById('ci-checkin-date').value;
       const checkout = document.getElementById('ci-checkout-date').value;
-      
       if (checkin && checkout) {
-        const d1 = new Date(checkin);
-        const d2 = new Date(checkout);
+        const d1 = new Date(checkin), d2 = new Date(checkout);
         const days = Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24));
-        
         if (days > 0) {
-          const weeks = Math.floor(days / 7);
-          const remaining = days % 7;
+          const weeks = Math.floor(days / 7), remaining = days % 7;
           let duration = `${days} days`;
-          if (weeks > 0) {
-            duration += ` (${weeks}w ${remaining}d)`;
-          }
+          if (weeks > 0) duration += ` (${weeks}w ${remaining}d)`;
           document.getElementById('ci-duration').value = duration;
         } else {
           document.getElementById('ci-duration').value = 'Invalid dates';
@@ -2586,149 +1166,51 @@
       }
     }
 
-    // ==========================
-    // STUDIO MANAGEMENT
-    // ==========================
-    function loadStudios() {
-      // Load from localStorage or use defaults
-      const saved = localStorage.getItem('studios');
-      studios = saved ? JSON.parse(saved) : [
-        'Studio A-101', 'Studio A-102', 'Studio A-103',
-        'Studio B-201', 'Studio B-202', 'Studio B-203',
-        'Studio C-301', 'Studio C-302', 'Studio C-303'
-      ];
-      updateStudioSelects();
-    }
-
-    function saveStudios() {
-      localStorage.setItem('studios', JSON.stringify(studios));
-      updateStudioSelects();
-    }
-
-    function updateStudioSelects() {
-      const selects = ['ci-studio', 'co-studio-select', 'filterStudio'];
-      selects.forEach(id => {
-        const select = document.getElementById(id);
-        if (select) {
-          const currentValue = select.value;
-          select.innerHTML = '<option value="">Select Studio...</option>' +
-            studios.map(s => `<option value="${s}">${s}</option>`).join('');
-          select.value = currentValue;
-        }
-      });
-
-      // Update studio list in settings
-      const list = document.getElementById('studioList');
-      if (list) {
-        list.innerHTML = studios.map((s, i) => `
-          <div class="file-item">
-            <div class="file-icon"><i class="fas fa-building"></i></div>
-            <div class="file-info">
-              <div class="file-name">${s}</div>
-            </div>
-            <div class="file-actions">
-              <button class="file-btn" onclick="deleteStudio(${i})">
-                <i class="fas fa-trash"></i>
-              </button>
-            </div>
-          </div>
-        `).join('');
-      }
-    }
-
-    function addStudio() {
-      const input = document.getElementById('newStudioName');
-      const name = input.value.trim();
-      if (name && !studios.includes(name)) {
-        studios.push(name);
-        saveStudios();
-        input.value = '';
-        showToast('Studio added successfully', 'success');
-      }
-    }
-
-    function deleteStudio(index) {
-      studios.splice(index, 1);
-      saveStudios();
-      showToast('Studio deleted', 'info');
-    }
-
-    async function loadDriveStudios() {
-      if (!accessToken) return;
-      
-      try {
-        const response = await fetch(
-          `https://www.googleapis.com/drive/v3/files?q='${CONFIG.ROOT_FOLDER_ID}'+in+parents+and+mimeType='application/vnd.google-apps.folder'+and+trashed=false&fields=files(id,name)`,
-          { headers: { 'Authorization': `Bearer ${accessToken}` } }
-        );
-        
-        const data = await response.json();
-        if (data.files) {
-          const driveStudios = data.files.map(f => f.name);
-          studios = [...new Set([...studios, ...driveStudios])];
-          saveStudios();
-        }
-      } catch (err) {
-        console.error('Failed to load studios from Drive:', err);
-      }
-    }
-
-    // ==========================
-    // SUBMISSION
-    // ==========================
+    // SUBMIT CHECK-IN
     async function submitCheckIn() {
-      // Validation
-      const required = ['ci-name', 'ci-phone', 'ci-email', 'ci-studio', 'ci-checkin-date', 'ci-checkout-date'];
+      const studioName = document.getElementById('ci-studio').value;
+      if (!studioName) { showToast('Please select a studio', 'error'); document.getElementById('ci-studio').focus(); return; }
+      const required = ['ci-name', 'ci-phone', 'ci-email', 'ci-checkin-date', 'ci-checkout-date'];
       for (const id of required) {
-        if (!document.getElementById(id).value) {
-          showToast('Please fill all required fields', 'error');
-          document.getElementById(id).focus();
-          return;
-        }
+        if (!document.getElementById(id).value) { showToast('Please fill all required fields (*)', 'error'); document.getElementById(id).focus(); return; }
       }
+      if (!idPhotos.front || !idPhotos.back) { showToast('Please capture both sides of Emirates ID', 'error'); return; }
+      if (!accessToken) { showToast('Please sign in with Google first', 'error'); return; }
 
-      if (!accessToken) {
-        showToast('Please sign in with Google first', 'error');
-        return;
-      }
-
-      // Show progress
       document.getElementById('ciProgress').style.display = 'block';
-      updateProgress('ci', 10, 'Creating folder structure...');
+      document.getElementById('btnSubmitCheckin').disabled = true;
+      updateProgress('ci', 5, 'Preparing upload...');
 
       try {
-        // Create folder structure
-        const studioName = document.getElementById('ci-studio').value;
-        const studioFolder = await ensureFolder(CONFIG.ROOT_FOLDER_ID, studioName);
-        
+        const studioFolderId = studioFolders[studioName];
+        if (!studioFolderId) throw new Error('Studio folder not found');
         const tenantName = document.getElementById('ci-name').value;
-        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        const stayFolderName = `CHECKIN_${timestamp}_${tenantName.replace(/\s+/g, '_')}`;
-        const stayFolder = await createFolder(studioFolder, stayFolderName);
-        
-        updateProgress('ci', 30, 'Uploading documents...');
+        const checkinDate = document.getElementById('ci-checkin-date').value;
+        const safeTenantName = tenantName.replace(/[^a-zA-Z0-9]/g, '_');
+        const stayFolderName = `CHECKIN_${checkinDate}_${safeTenantName}`;
 
-        // Create subfolders
-        const imagesFolder = await createFolder(stayFolder, '01_Images');
-        const docsFolder = await createFolder(stayFolder, '02_Documents');
-        const idFolder = await createFolder(stayFolder, '03_ID_Documents');
+        updateProgress('ci', 10, 'Creating folder structure...');
+        const stayFolderId = await createFolder(studioFolderId, stayFolderName);
+        updateProgress('ci', 20, 'Creating subfolders...');
+        const imagesFolderId = await createFolder(stayFolderId, '01_Images');
+        const idFolderId = await createFolder(stayFolderId, '02_ID_Documents');
+        const docsFolderId = await createFolder(stayFolderId, '03_Documents');
 
-        // Upload tenant info JSON
+        updateProgress('ci', 30, 'Saving tenant information...');
         const tenantInfo = {
-          name: document.getElementById('ci-name').value,
+          tenantName: document.getElementById('ci-name').value,
           phone: document.getElementById('ci-phone').value,
           email: document.getElementById('ci-email').value,
           nationality: document.getElementById('ci-nationality').value,
-          emergency: document.getElementById('ci-emergency').value,
+          emergencyContact: document.getElementById('ci-emergency').value,
           occupants: document.getElementById('ci-occupants').value,
           emiratesId: document.getElementById('ci-emirates-id').value,
           idExpiry: document.getElementById('ci-id-expiry').value,
-          studio: document.getElementById('ci-studio').value,
-          floor: document.getElementById('ci-floor').value,
-          rent: document.getElementById('ci-rent').value,
-          checkinDate: document.getElementById('ci-checkin-date').value,
+          studio: studioName,
+          checkinDate: checkinDate,
           checkoutDate: document.getElementById('ci-checkout-date').value,
           duration: document.getElementById('ci-duration').value,
+          rent: document.getElementById('ci-rent').value,
           deposit: document.getElementById('ci-deposit').value,
           paymentMethod: document.getElementById('ci-payment').value,
           contractRef: document.getElementById('ci-contract').value,
@@ -2737,108 +1219,63 @@
           notes: document.getElementById('ci-notes').value,
           submittedAt: new Date().toISOString()
         };
+        await uploadJson(stayFolderId, 'tenant_info.json', tenantInfo);
 
-        await uploadJson(stayFolder, 'tenant_info.json', tenantInfo);
-
-        updateProgress('ci', 50, 'Uploading photos...');
-
-        // Upload photos
-        for (let i = 0; i < capturedPhotos.length; i++) {
-          const photoData = capturedPhotos[i];
-          const blob = dataURLtoBlob(photoData);
-          await uploadFile(imagesFolder, new File([blob], `photo_${i + 1}.jpg`, { type: 'image/jpeg' }));
-          updateProgress('ci', 50 + (i / capturedPhotos.length) * 30, `Uploading photo ${i + 1}...`);
-        }
-
-        // Upload ID photos
+        updateProgress('ci', 40, 'Uploading Emirates ID...');
         if (idPhotos.front) {
           const frontBlob = dataURLtoBlob(idPhotos.front);
-          await uploadFile(idFolder, new File([frontBlob], 'emirates_id_front.jpg', { type: 'image/jpeg' }));
+          await uploadFile(idFolderId, new File([frontBlob], 'emirates_id_front.jpg', { type: 'image/jpeg' }));
         }
         if (idPhotos.back) {
           const backBlob = dataURLtoBlob(idPhotos.back);
-          await uploadFile(idFolder, new File([backBlob], 'emirates_id_back.jpg', { type: 'image/jpeg' }));
+          await uploadFile(idFolderId, new File([backBlob], 'emirates_id_back.jpg', { type: 'image/jpeg' }));
         }
 
-        // Upload signature
+        updateProgress('ci', 60, 'Uploading property photos...');
+        for (let i = 0; i < capturedPhotos.length; i++) {
+          const photoData = capturedPhotos[i];
+          const blob = dataURLtoBlob(photoData);
+          await uploadFile(imagesFolderId, new File([blob], `property_photo_${i + 1}.jpg`, { type: 'image/jpeg' }));
+          const progress = 60 + ((i + 1) / capturedPhotos.length) * 20;
+          updateProgress('ci', Math.round(progress), `Uploading photo ${i + 1} of ${capturedPhotos.length}...`);
+        }
+
+        updateProgress('ci', 85, 'Uploading signature...');
         if (window.checkinSignature) {
           const sigBlob = dataURLtoBlob(window.checkinSignature);
-          await uploadFile(docsFolder, new File([sigBlob], 'signature.png', { type: 'image/png' }));
+          await uploadFile(docsFolderId, new File([sigBlob], 'signature.png', { type: 'image/png' }));
         }
 
-        updateProgress('ci', 100, 'Complete!');
-        showToast('Check-in submitted successfully!', 'success');
-
-        // Add to records
-        records.push({
-          id: Date.now(),
-          type: 'checkin',
-          tenantName: tenantInfo.name,
-          studio: tenantInfo.studio,
-          date: tenantInfo.checkinDate,
-          folderId: stayFolder
-        });
+        updateProgress('ci', 95, 'Finalizing...');
+        const record = { id: stayFolderId, type: 'checkin', tenantName: tenantInfo.tenantName, studio: studioName, date: tenantInfo.checkinDate, folderId: stayFolderId, studioFolderId: studioFolderId };
+        records.push(record);
+        allRecords.push(record);
         updateStats();
+        renderRecords();
 
+        updateProgress('ci', 100, 'Complete!');
+        showToast(`Check-in saved to ${studioName}!`, 'success');
         setTimeout(() => {
           document.getElementById('ciProgress').style.display = 'none';
+          document.getElementById('btnSubmitCheckin').disabled = false;
           resetCheckIn();
         }, 2000);
-
       } catch (err) {
         console.error('Submission error:', err);
         showToast('Error: ' + err.message, 'error');
         document.getElementById('ciProgress').style.display = 'none';
+        document.getElementById('btnSubmitCheckin').disabled = false;
       }
     }
 
-    async function submitCheckOut() {
-      if (!document.getElementById('co-stay-select').value) {
-        showToast('Please select a stay first', 'error');
-        return;
-      }
-
-      showToast('Check-out submitted successfully!', 'success');
-      resetCheckOut();
-    }
-
-    // ==========================
-    // GOOGLE DRIVE HELPERS
-    // ==========================
-    async function ensureFolder(parentId, name) {
-      // Check if folder exists
-      const query = `'${parentId}' in parents and name='${name}' and mimeType='application/vnd.google-apps.folder' and trashed=false`;
-      const response = await fetch(
-        `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(query)}&fields=files(id)`,
-        { headers: { 'Authorization': `Bearer ${accessToken}` } }
-      );
-      
-      const data = await response.json();
-      if (data.files && data.files.length > 0) {
-        return data.files[0].id;
-      }
-
-      // Create folder
-      return createFolder(parentId, name);
-    }
-
+    // DRIVE HELPERS
     async function createFolder(parentId, name) {
-      const response = await fetch(
-        'https://www.googleapis.com/drive/v3/files?fields=id',
-        {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${accessToken}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            name: name,
-            mimeType: 'application/vnd.google-apps.folder',
-            parents: [parentId]
-          })
-        }
-      );
-      
+      const response = await fetch('https://www.googleapis.com/drive/v3/files?fields=id', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, mimeType: 'application/vnd.google-apps.folder', parents: [parentId] })
+      });
+      if (!response.ok) { const error = await response.text(); throw new Error(`Failed to create folder: ${error}`); }
       const data = await response.json();
       return data.id;
     }
@@ -2849,38 +1286,25 @@
     }
 
     async function uploadFile(parentId, file) {
-      const metadata = {
-        name: file.name,
-        parents: [parentId]
-      };
-
+      const metadata = { name: file.name, parents: [parentId] };
       const form = new FormData();
       form.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
       form.append('file', file);
-
-      const response = await fetch(
-        'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id',
-        {
-          method: 'POST',
-          headers: { 'Authorization': `Bearer ${accessToken}` },
-          body: form
-        }
-      );
-
+      const response = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${accessToken}` },
+        body: form
+      });
+      if (!response.ok) { const error = await response.text(); throw new Error(`Upload failed: ${error}`); }
       return response.json();
     }
 
-    // ==========================
-    // UTILITY FUNCTIONS
-    // ==========================
     function dataURLtoBlob(dataURL) {
       const byteString = atob(dataURL.split(',')[1]);
       const mimeString = dataURL.split(',')[0].split(':')[1].split(';')[0];
       const ab = new ArrayBuffer(byteString.length);
       const ia = new Uint8Array(ab);
-      for (let i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
-      }
+      for (let i = 0; i < byteString.length; i++) ia[i] = byteString.charCodeAt(i);
       return new Blob([ab], { type: mimeString });
     }
 
@@ -2903,78 +1327,57 @@
       document.getElementById('statCheckins').textContent = records.filter(r => {
         const date = new Date(r.date);
         const now = new Date();
-        return r.type === 'checkin' && date.getMonth() === now.getMonth();
+        return r.type === 'checkin' && date.getMonth() === now.getMonth() && date.getFullYear() === now.getFullYear();
       }).length;
       document.getElementById('recordCount').textContent = records.length;
     }
 
-    // ==========================
     // UI FUNCTIONS
-    // ==========================
     function switchTab(tabName) {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-      
       document.getElementById(`tab-${tabName}`).classList.add('active');
       event.target.closest('.nav-btn').classList.add('active');
+      if (tabName === 'browse' && accessToken) refreshRecords();
     }
 
     function showToast(message, type = 'info') {
       const container = document.getElementById('toastContainer');
       const toast = document.createElement('div');
       toast.className = `toast ${type}`;
-      
-      const icons = {
-        success: 'fa-check-circle',
-        error: 'fa-exclamation-circle',
-        warning: 'fa-exclamation-triangle',
-        info: 'fa-info-circle'
-      };
-
-      toast.innerHTML = `
-        <i class="fas ${icons[type]} toast-icon"></i>
-        <div class="toast-content">
-          <div class="toast-title">${type.charAt(0).toUpperCase() + type.slice(1)}</div>
-          <div>${message}</div>
-        </div>
-        <button class="toast-close" onclick="this.parentElement.remove()">
-          <i class="fas fa-times"></i>
-        </button>
-      `;
-
+      const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', warning: 'fa-exclamation-triangle', info: 'fa-info-circle' };
+      toast.innerHTML = `<i class="fas ${icons[type]} toast-icon"></i>` +
+        `<div class="toast-content"><div class="toast-title">${type.charAt(0).toUpperCase() + type.slice(1)}</div><div>${message}</div></div>` +
+        `<button class="toast-close" onclick="this.parentElement.remove()"><i class="fas fa-times"></i></button>`;
       container.appendChild(toast);
       setTimeout(() => toast.remove(), 5000);
     }
 
     function resetCheckIn() {
-      document.querySelectorAll('#tab-checkin input, #tab-checkin textarea').forEach(el => {
-        if (el.type !== 'button') el.value = '';
+      document.querySelectorAll('#tab-checkin input:not([type="button"]):not([type="submit"]), #tab-checkin textarea').forEach(el => {
+        if (el.type === 'select-one') el.selectedIndex = 0;
+        else if (el.type !== 'checkbox') el.value = '';
       });
       document.querySelectorAll('#tab-checkin input[type="checkbox"]').forEach(el => {
         el.checked = false;
-        el.closest('.checklist-item').classList.remove('checked');
+        el.closest('.checklist-item')?.classList.remove('checked');
       });
       document.querySelectorAll('.rating-btn').forEach(b => b.classList.remove('selected'));
       capturedPhotos = [];
       idPhotos = { front: null, back: null };
       renderPhotoGallery();
-      document.getElementById('idFrontPreview').innerHTML = `
-        <div class="id-card-placeholder"><i class="fas fa-id-card"></i><span>Front Side</span></div>
-      `;
-      document.getElementById('idBackPreview').innerHTML = `
-        <div class="id-card-placeholder"><i class="fas fa-id-card"></i><span>Back Side</span></div>
-      `;
+      document.getElementById('idFrontPreview').innerHTML = '<div class="id-card-placeholder"><i class="fas fa-id-card"></i><span>Front Side</span></div>';
+      document.getElementById('idBackPreview').innerHTML = '<div class="id-card-placeholder"><i class="fas fa-id-card"></i><span>Back Side</span></div>';
+      document.getElementById('selectedStudioInfo').style.display = 'none';
       clearSignature();
       initializeDateFields();
     }
 
     function resetCheckOut() {
-      document.querySelectorAll('#tab-checkout input, #tab-checkout textarea').forEach(el => {
-        if (el.type !== 'button') el.value = '';
-      });
+      document.querySelectorAll('#tab-checkout input:not([readonly]):not([type="button"]):not([type="submit"]), #tab-checkout textarea').forEach(el => el.value = '');
       document.querySelectorAll('#tab-checkout input[type="checkbox"]').forEach(el => {
         el.checked = false;
-        el.closest('.checklist-item').classList.remove('checked');
+        el.closest('.checklist-item')?.classList.remove('checked');
       });
       coPhotos = [];
       document.getElementById('coPhotoGallery').innerHTML = '';
@@ -2983,73 +1386,193 @@
     function saveSettings() {
       const clientId = document.getElementById('settingClientId').value;
       const folderId = document.getElementById('settingFolderId').value;
-      
-      if (clientId) {
-        CONFIG.CLIENT_ID = clientId;
-        localStorage.setItem('clientId', clientId);
+      if (clientId) { CONFIG.CLIENT_ID = clientId; localStorage.setItem('clientId', clientId); }
+      if (folderId) { CONFIG.ROOT_FOLDER_ID = folderId; localStorage.setItem('folderId', folderId); }
+      if (tokenClient && clientId) {
+        tokenClient = google.accounts.oauth2.initTokenClient({
+          client_id: clientId, scope: CONFIG.DRIVE_SCOPE, callback: handleAuthResponse
+        });
       }
-      if (folderId) {
-        CONFIG.ROOT_FOLDER_ID = folderId;
-        localStorage.setItem('folderId', folderId);
-      }
-      
       showToast('Settings saved successfully', 'success');
     }
 
     function testConnection() {
-      if (accessToken) {
-        showToast('Connected to Google Drive!', 'success');
-      } else {
-        showToast('Not connected. Please sign in first.', 'error');
+      if (accessToken) showToast('Connected to Google Drive!', 'success');
+      else showToast('Not connected. Please sign in first.', 'error');
+    }
+
+    // CHECKOUT FUNCTIONS
+    async function loadStaysForCheckout() {
+      const studioName = document.getElementById('co-studio-select').value;
+      const staySelect = document.getElementById('co-stay-select');
+      staySelect.innerHTML = '<option value="">-- Select Stay --</option>';
+      if (!studioName || !accessToken) return;
+      const studioFolderId = studioFolders[studioName];
+      if (!studioFolderId) return;
+      try {
+        const response = await fetch(
+          `https://www.googleapis.com/drive/v3/files?q='${studioFolderId}'+in+parents+and+mimeType='application/vnd.google-apps.folder'+and+name+contains+'CHECKIN'+and+trashed=false&fields=files(id,name,modifiedTime)&orderBy=modifiedTime desc`,
+          { headers: { 'Authorization': `Bearer ${accessToken}` } }
+        );
+        const data = await response.json();
+        (data.files || []).forEach(folder => {
+          const option = document.createElement('option');
+          option.value = folder.id;
+          option.textContent = folder.name;
+          staySelect.appendChild(option);
+        });
+      } catch (err) { console.error('Error loading stays:', err); }
+    }
+
+    async function loadCheckoutData() {
+      const stayId = document.getElementById('co-stay-select').value;
+      if (!stayId) { showToast('Please select a stay first', 'warning'); return; }
+      try {
+        const response = await fetch(
+          `https://www.googleapis.com/drive/v3/files?q='${stayId}'+in+parents+and+name='tenant_info.json'+and+trashed=false&fields=files(id,name)`,
+          { headers: { 'Authorization': `Bearer ${accessToken}` } }
+        );
+        const data = await response.json();
+        if (data.files && data.files.length > 0) {
+          const fileId = data.files[0].id;
+          const fileResponse = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`,
+            { headers: { 'Authorization': `Bearer ${accessToken}` } }
+          );
+          const tenantInfo = await fileResponse.json();
+          document.getElementById('co-name').value = tenantInfo.tenantName || '';
+          document.getElementById('co-studio').value = tenantInfo.studio || '';
+          showToast('Check-in data loaded', 'success');
+        } else { showToast('No tenant info found', 'warning'); }
+      } catch (err) {
+        console.error('Error loading checkout data:', err);
+        showToast('Failed to load data', 'error');
       }
     }
 
-    function loadStaysForCheckout() {
-      // Mock function - would load from Drive
-      const select = document.getElementById('co-stay-select');
-      select.innerHTML = '<option value="">Select Stay...</option>' +
-        '<option value="1">CHECKIN_2025-01-15_John_Doe</option>' +
-        '<option value="2">CHECKIN_2025-01-10_Jane_Smith</option>';
-    }
-
-    function loadCheckoutData() {
-      // Mock function - would load actual data
-      document.getElementById('co-name').value = 'John Doe';
-      document.getElementById('co-studio').value = 'Studio A-101';
+    async function submitCheckOut() {
+      const stayId = document.getElementById('co-stay-select').value;
+      if (!stayId) { showToast('Please select a stay first', 'error'); return; }
+      if (!document.getElementById('co-checkout-date').value) { showToast('Please enter check-out date', 'error'); return; }
+      try {
+        const checkoutFolderName = `CHECKOUT_${document.getElementById('co-checkout-date').value}`;
+        const checkoutFolderId = await createFolder(stayId, checkoutFolderName);
+        const checkoutInfo = {
+          checkoutDate: document.getElementById('co-checkout-date').value,
+          depositReturned: document.getElementById('co-deposit-return').value,
+          deductions: document.getElementById('co-deductions').value,
+          deductionReason: document.getElementById('co-deduction-reason').value,
+          finalBill: document.getElementById('co-final-bill').value,
+          paymentStatus: document.getElementById('co-payment-status').value,
+          keysReturned: document.getElementById('co-keys').value,
+          checklist: getChecklistData('co'),
+          notes: document.getElementById('co-notes').value,
+          submittedAt: new Date().toISOString()
+        };
+        await uploadJson(checkoutFolderId, 'checkout_info.json', checkoutInfo);
+        for (let i = 0; i < coPhotos.length; i++) {
+          const photoData = coPhotos[i];
+          const blob = dataURLtoBlob(photoData);
+          await uploadFile(checkoutFolderId, new File([blob], `checkout_photo_${i + 1}.jpg`, { type: 'image/jpeg' }));
+        }
+        showToast('Check-out recorded successfully!', 'success');
+        resetCheckOut();
+      } catch (err) {
+        console.error('Checkout error:', err);
+        showToast('Error: ' + err.message, 'error');
+      }
     }
 
     function handleCoPhotoUpload(event) {
       const files = Array.from(event.target.files);
       const gallery = document.getElementById('coPhotoGallery');
-      
       files.forEach(file => {
         if (file.type.startsWith('image/')) {
           const reader = new FileReader();
           reader.onload = (e) => {
             coPhotos.push(e.target.result);
-            gallery.innerHTML += `
-              <div class="photo-item">
-                <img src="${e.target.result}" alt="Photo">
-              </div>
-            `;
+            gallery.innerHTML += `<div class="photo-item"><img src="${e.target.result}" alt="Photo"></div>`;
           };
           reader.readAsDataURL(file);
         }
       });
     }
 
-    // Load saved settings
-    const savedClientId = localStorage.getItem('clientId');
-    const savedFolderId = localStorage.getItem('folderId');
-    if (savedClientId) {
-      CONFIG.CLIENT_ID = savedClientId;
-      document.getElementById('settingClientId').value = savedClientId;
+    // BROWSE RECORDS
+    async function refreshRecords() {
+      if (!accessToken) { showToast('Please sign in first', 'error'); return; }
+      const grid = document.getElementById('recordsGrid');
+      grid.innerHTML = '<div class="empty-state"><div class="studio-loading"><span class="spinner"></span><span>Loading records...</span></div></div>';
+      records = [];
+      try {
+        for (const studio of studios) {
+          const response = await fetch(
+            `https://www.googleapis.com/drive/v3/files?q='${studio.id}'+in+parents+and+mimeType='application/vnd.google-apps.folder'+and+name+contains+'CHECKIN'+and+trashed=false&fields=files(id,name,modifiedTime)&orderBy=modifiedTime desc`,
+            { headers: { 'Authorization': `Bearer ${accessToken}` } }
+          );
+          const data = await response.json();
+          (data.files || []).forEach(folder => {
+            const parts = folder.name.split('_');
+            const date = parts[1] || '';
+            const tenantName = parts.slice(2).join(' ').replace(/_/g, ' ') || 'Unknown';
+            records.push({
+              id: folder.id, type: 'checkin', tenantName: tenantName, studio: studio.name,
+              date: date, modifiedTime: folder.modifiedTime, folderId: folder.id, studioFolderId: studio.id
+            });
+          });
+        }
+        allRecords = [...records];
+        renderRecords();
+        updateStats();
+      } catch (err) {
+        console.error('Error loading records:', err);
+        grid.innerHTML = `<div class="empty-state"><div class="empty-state-icon"><i class="fas fa-exclamation-circle"></i></div><h3>Error Loading Records</h3><p>${err.message}</p></div>`;
+      }
     }
-    if (savedFolderId) {
-      CONFIG.ROOT_FOLDER_ID = savedFolderId;
-      document.getElementById('settingFolderId').value = savedFolderId;
+
+    function renderRecords() {
+      const grid = document.getElementById('recordsGrid');
+      if (records.length === 0) {
+        grid.innerHTML = '<div class="empty-state"><div class="empty-state-icon"><i class="fas fa-folder-open"></i></div><h3>No Records Found</h3><p>No check-in records found in your Drive</p></div>';
+        return;
+      }
+      grid.innerHTML = records.map(record => 
+        `<div class="record-card" onclick="openRecord('${record.id}')">` +
+        `<div class="record-header"><span class="record-type ${record.type}"><i class="fas fa-${record.type === 'checkin' ? 'sign-in-alt' : 'sign-out-alt'}"></i>${record.type === 'checkin' ? 'Check-In' : 'Check-Out'}</span>` +
+        `<span class="record-date">${formatDate(record.date)}</span></div>` +
+        `<div class="record-info"><div class="record-row"><i class="fas fa-user"></i><span><strong>${record.tenantName}</strong></span></div>` +
+        `<div class="record-row"><i class="fas fa-building"></i><span>${record.studio}</span></div>` +
+        `<div class="record-row"><i class="fas fa-folder"></i><span style="font-size: 12px; color: var(--gray-400);">${record.id}</span></div></div></div>`
+      ).join('');
+    }
+
+    function filterRecords() {
+      const searchTerm = document.getElementById('searchRecords').value.toLowerCase();
+      const studioFilter = document.getElementById('filterStudio').value;
+      const typeFilter = document.getElementById('filterType').value;
+      records = allRecords.filter(record => {
+        const matchesSearch = !searchTerm || record.tenantName.toLowerCase().includes(searchTerm) || record.studio.toLowerCase().includes(searchTerm);
+        const matchesStudio = !studioFilter || record.studio === studioFilter;
+        const matchesType = !typeFilter || record.type === typeFilter;
+        return matchesSearch && matchesStudio && matchesType;
+      });
+      renderRecords();
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return 'Unknown';
+      const date = new Date(dateStr);
+      if (isNaN(date.getTime())) return dateStr;
+      return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+
+    function openRecord(folderId) {
+      window.open(`https://drive.google.com/drive/folders/${folderId}`, '_blank');
+    }
+
+    function refreshDashboard() {
+      if (accessToken) { loadStudiosFromDrive(); refreshRecords(); }
+      else showToast('Please sign in first', 'error');
     }
   </script>
-
 </body>
 </html>
